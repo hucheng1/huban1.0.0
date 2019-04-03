@@ -1,5 +1,8 @@
 package com.huaban.entity;
 
+/**
+ * 分类类
+ */
 public class Class {
     private Integer cid;
 

@@ -1,5 +1,8 @@
 package com.huaban.entity;
 
+/**
+ * 标签类
+ */
 public class Label {
     private Integer lid;
 

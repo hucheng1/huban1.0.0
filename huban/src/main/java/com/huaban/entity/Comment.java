@@ -2,6 +2,9 @@ package com.huaban.entity;
 
 import java.util.Date;
 
+/**
+ * 讨论类
+ */
 public class Comment {
     private Integer cid;
 

@@ -1,5 +1,8 @@
 package com.huaban.entity;
 
+/**
+ * 关注类
+ */
 public class Focus {
     private Integer fid;
 

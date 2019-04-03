@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="dao.ClassMapper" >
-  <resultMap id="BaseResultMap" type="com.entity.Class" >
+<mapper namespace="com.huaban.dao.IClassDao" >
+  <resultMap id="BaseResultMap" type="com.huaban.entity.Class" >
     <id column="cid" property="cid" jdbcType="INTEGER" />
     <result column="cname" property="cname" jdbcType="VARCHAR" />
   </resultMap>
@@ -23,11 +23,11 @@
     delete from class
     where cid = #{cid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="entity.Class" >
+  <insert id="insert" parameterType="com.huaban.entity.Class" >
     insert into class (cid, cname)
     values (#{cid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="entity.Class" >
+  <insert id="insertSelective" parameterType="com.huaban.entity.Class" >
     insert into class
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="cid != null" >
@@ -46,7 +46,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="entity.Class" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.huaban.entity.Class" >
     update class
     <set >
       <if test="cname != null" >
@@ -55,7 +55,7 @@
     </set>
     where cid = #{cid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="entity.Class" >
+  <update id="updateByPrimaryKey" parameterType="com.huaban.entity.Class" >
     update class
     set cname = #{cname,jdbcType=VARCHAR}
     where cid = #{cid,jdbcType=INTEGER}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="dao.UsersMapper" >
-  <resultMap id="BaseResultMap" type="com.entity.Users" >
+  <resultMap id="BaseResultMap" type="com.huaban.entity.Users" >
     <id column="uid" property="uid" jdbcType="INTEGER" />
     <result column="uname" property="uname" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
@@ -29,7 +29,7 @@
     delete from users
     where uid = #{uid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="entity.Users" >
+  <insert id="insert" parameterType="com.huaban.entity.Users" >
     insert into users (uid, uname, phone, 
       email, password, img, 
       address, sex, birthday, 
@@ -41,7 +41,7 @@
       #{profession,jdbcType=VARCHAR}, #{http,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="entity.Users" >
+  <insert id="insertSelective" parameterType="com.huaban.entity.Users" >
     insert into users
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="uid != null" >
@@ -120,7 +120,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="entity.Users" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.huaban.entity.Users" >
     update users
     <set >
       <if test="uname != null" >
@@ -159,7 +159,7 @@
     </set>
     where uid = #{uid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="entity.Users" >
+  <update id="updateByPrimaryKey" parameterType="com.huaban.entity.Users" >
     update users
     set uname = #{uname,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},

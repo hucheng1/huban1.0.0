@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="dao.LabelMapper" >
-  <resultMap id="BaseResultMap" type="com.entity.Label" >
+  <resultMap id="BaseResultMap" type="com.huaban.entity.Label" >
     <id column="lid" property="lid" jdbcType="INTEGER" />
     <result column="lname" property="lname" jdbcType="VARCHAR" />
   </resultMap>
@@ -18,11 +18,11 @@
     delete from label
     where lid = #{lid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="entity.Label" >
+  <insert id="insert" parameterType="com.huaban.entity.Label" >
     insert into label (lid, lname)
     values (#{lid,jdbcType=INTEGER}, #{lname,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="entity.Label" >
+  <insert id="insertSelective" parameterType="com.huaban.entity.Label" >
     insert into label
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="lid != null" >
@@ -41,7 +41,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="entity.Label" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.huaban.entity.Label" >
     update label
     <set >
       <if test="lname != null" >
@@ -50,7 +50,7 @@
     </set>
     where lid = #{lid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="entity.Label" >
+  <update id="updateByPrimaryKey" parameterType="com.huaban.entity.Label" >
     update label
     set lname = #{lname,jdbcType=VARCHAR}
     where lid = #{lid,jdbcType=INTEGER}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="dao.GatherMapper" >
-  <resultMap id="BaseResultMap" type="com.entity.Gather" >
+  <resultMap id="BaseResultMap" type="com.huaban.entity.Gather" >
     <id column="gid" property="gid" jdbcType="INTEGER" />
     <result column="gname" property="gname" jdbcType="VARCHAR" />
     <result column="img" property="img" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from gather
     where gid = #{gid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="entity.Gather" >
+  <insert id="insert" parameterType="com.huaban.entity.Gather" >
     insert into gather (gid, gname, img, 
       hid, lid, transpond_uid, 
       date)
@@ -31,7 +31,7 @@
       #{hid,jdbcType=INTEGER}, #{lid,jdbcType=INTEGER}, #{transpondUid,jdbcType=INTEGER}, 
       #{date,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="entity.Gather" >
+  <insert id="insertSelective" parameterType="com.huaban.entity.Gather" >
     insert into gather
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="gid != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="entity.Gather" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.huaban.entity.Gather" >
     update gather
     <set >
       <if test="gname != null" >
@@ -104,7 +104,7 @@
     </set>
     where gid = #{gid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="entity.Gather" >
+  <update id="updateByPrimaryKey" parameterType="com.huaban.entity.Gather" >
     update gather
     set gname = #{gname,jdbcType=VARCHAR},
       img = #{img,jdbcType=VARCHAR},

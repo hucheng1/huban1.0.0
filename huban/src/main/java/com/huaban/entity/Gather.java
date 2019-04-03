@@ -2,6 +2,9 @@ package com.huaban.entity;
 
 import java.util.Date;
 
+/**
+ * 采集类
+ */
 public class Gather {
     private Integer gid;
 

@@ -1,5 +1,8 @@
 package com.huaban.entity;
 
+/**
+ * 喜欢类
+ */
 public class Love {
     private Integer id;
 

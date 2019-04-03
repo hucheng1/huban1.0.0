@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="dao.FocusMapper" >
-  <resultMap id="BaseResultMap" type="com.entity.Focus" >
+  <resultMap id="BaseResultMap" type="com.huaban.entity.Focus" >
     <id column="fid" property="fid" jdbcType="INTEGER" />
     <result column="uid" property="uid" jdbcType="INTEGER" />
     <result column="hid" property="hid" jdbcType="INTEGER" />
@@ -19,13 +19,13 @@
     delete from focus
     where fid = #{fid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="entity.Focus" >
+  <insert id="insert" parameterType="com.huaban.entity.Focus" >
     insert into focus (fid, uid, hid
       )
     values (#{fid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{hid,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="entity.Focus" >
+  <insert id="insertSelective" parameterType="com.huaban.entity.Focus" >
     insert into focus
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="fid != null" >
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="entity.Focus" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.huaban.entity.Focus" >
     update focus
     <set >
       <if test="uid != null" >
@@ -62,7 +62,7 @@
     </set>
     where fid = #{fid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="entity.Focus" >
+  <update id="updateByPrimaryKey" parameterType="com.huaban.entity.Focus" >
     update focus
     set uid = #{uid,jdbcType=INTEGER},
       hid = #{hid,jdbcType=INTEGER}

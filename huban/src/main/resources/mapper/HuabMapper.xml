@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="dao.HuabMapper" >
-  <resultMap id="BaseResultMap" type="com.entity.Huab" >
+  <resultMap id="BaseResultMap" type="com.huaban.entity.Huab" >
     <id column="hid" property="hid" jdbcType="INTEGER" />
     <result column="hname" property="hname" jdbcType="VARCHAR" />
     <result column="context" property="context" jdbcType="VARCHAR" />
@@ -21,13 +21,13 @@
     delete from huab
     where hid = #{hid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="entity.Huab" >
+  <insert id="insert" parameterType="com.huaban.entity.Huab" >
     insert into huab (hid, hname, context, 
       cid, uid)
     values (#{hid,jdbcType=INTEGER}, #{hname,jdbcType=VARCHAR}, #{context,jdbcType=VARCHAR}, 
       #{cid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="entity.Huab" >
+  <insert id="insertSelective" parameterType="com.huaban.entity.Huab" >
     insert into huab
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="hid != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="entity.Huab" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.huaban.entity.Huab" >
     update huab
     <set >
       <if test="hname != null" >
@@ -82,7 +82,7 @@
     </set>
     where hid = #{hid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="entity.Huab" >
+  <update id="updateByPrimaryKey" parameterType="com.huaban.entity.Huab" >
     update huab
     set hname = #{hname,jdbcType=VARCHAR},
       context = #{context,jdbcType=VARCHAR},

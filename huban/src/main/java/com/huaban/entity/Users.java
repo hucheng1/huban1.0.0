@@ -2,6 +2,9 @@ package com.huaban.entity;
 
 import java.util.Date;
 
+/**
+ * 用户类
+ */
 public class Users {
     private Integer uid;
 

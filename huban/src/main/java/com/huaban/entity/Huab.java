@@ -1,5 +1,8 @@
 package com.huaban.entity;
 
+/**
+ * 画板类
+ */
 public class Huab {
     private Integer hid;
 
