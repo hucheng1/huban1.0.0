@@ -1,5 +1,7 @@
 package com.huaban.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -8,16 +10,35 @@ import java.util.Date;
 public class Gather {
     private Integer gid;
 
-    private String gname;
-
     private String img;
 
+    /**
+     * 用户id
+     */
     private Integer hid;
 
+    /**
+     * 标签id
+     */
     private Integer lid;
-
+    /**
+     * 转采者id
+     */
     private Integer transpondUid;
+    /**
+     * 描述
+     */
+    private String details;
+    /**
+     * 用户类
+     */
+    private Users users;
+    /**
+     * 转采用户类
+     */
+    private Users transpondUser;
 
+    @DateTimeFormat( pattern = "yyyy-MM-dd")
     private Date date;
 
     public Integer getGid() {
@@ -26,14 +47,6 @@ public class Gather {
 
     public void setGid(Integer gid) {
         this.gid = gid;
-    }
-
-    public String getGname() {
-        return gname;
-    }
-
-    public void setGname(String gname) {
-        this.gname = gname == null ? null : gname.trim();
     }
 
     public String getImg() {

@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="dao.GatherMapper" >
+<mapper namespace="com.huaban.dao.IGatherDao" >
   <resultMap id="BaseResultMap" type="com.huaban.entity.Gather" >
     <id column="gid" property="gid" jdbcType="INTEGER" />
-    <result column="gname" property="gname" jdbcType="VARCHAR" />
     <result column="img" property="img" jdbcType="VARCHAR" />
     <result column="hid" property="hid" jdbcType="INTEGER" />
     <result column="lid" property="lid" jdbcType="INTEGER" />
     <result column="transpond_uid" property="transpondUid" jdbcType="INTEGER" />
     <result column="date" property="date" jdbcType="TIMESTAMP" />
+    <result column="details" property="details" jdbcType="VARCHAR"/>
   </resultMap>
   <sql id="Base_Column_List" >
-    gid, gname, img, hid, lid, transpond_uid, date
+    gid, img, hid, lid, transpond_uid, date,details
   </sql>
+  <select id="selectByHid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select * from gather
+    where hid=${hid}
+  </select>
+  <select id="selectBygid" resultMap="BaseResultMap" parameterType="int">
+    select * from gather
+    where gid=${gid}
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

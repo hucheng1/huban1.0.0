@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="dao.UsersMapper" >
+<mapper namespace="com.huaban.dao.IUsersDao" >
   <resultMap id="BaseResultMap" type="com.huaban.entity.Users" >
     <id column="uid" property="uid" jdbcType="INTEGER" />
     <result column="uname" property="uname" jdbcType="VARCHAR" />
@@ -19,6 +19,10 @@
     uid, uname, phone, email, password, img, address, sex, birthday, profession, http, 
     description
   </sql>
+  <select id="selectByUid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select * from users
+    where uid=${uid}
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
