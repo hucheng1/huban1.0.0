@@ -75,4 +75,17 @@ public class Gather {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    @Override
+    public String toString() {
+        return "Gather{" +
+                "gid=" + gid +
+                ", gname='" + gname + '\'' +
+                ", img='" + img + '\'' +
+                ", hid=" + hid +
+                ", lid=" + lid +
+                ", transpondUid=" + transpondUid +
+                ", date=" + date +
+                '}';
+    }
 }
