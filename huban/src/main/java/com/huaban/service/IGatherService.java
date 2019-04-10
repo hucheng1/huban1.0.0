@@ -7,6 +7,17 @@ import java.util.Map;
 
 public interface IGatherService {
 
+    /**
+     * 根据id查询采集类
+     */
+    Gather selectBygid(int gid);
+
+    /**
+     * 根据hid查询采集集合
+     */
+    List<Gather> selectByHid(Integer hid);
+
     //查询所有图片
     List<Gather> selectimgAll(Map map);
+
 }

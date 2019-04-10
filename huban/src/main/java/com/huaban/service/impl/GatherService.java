@@ -1,6 +1,5 @@
 package com.huaban.service.impl;
 
-
 import com.huaban.dao.IGatherDao;
 import com.huaban.entity.Gather;
 import com.huaban.service.IGatherService;
@@ -10,27 +9,30 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Map;
 
+/**
+ * 采集服务类
+ */
 @Transactional
-@MapperScan("com.huaban.dao")
 @Service("gatherService")
+@MapperScan("com.huaban.dao")
 public class GatherService implements IGatherService{
 
-    @Autowired
-    private IGatherDao gd;
+    private IGatherDao dao;
 
-    public IGatherDao getGd() {
-        return gd;
+    public IGatherDao getDao() {
+        return dao;
     }
 
-    public void setGd(IGatherDao gd) {
-        this.gd = gd;
+    public void setDao(IGatherDao dao) {
+        this.dao = dao;
     }
 
+    public Gather selectBygid(int gid) {
+        return dao.selectBygid(gid);
+    }
 
-    @Override
-    public List<Gather> selectimgAll(Map map) {
-        return gd.selectimgAll(map);
+    public List<Gather> selectByHid(Integer hid) {
+        return dao.selectByHid(hid);
     }
 }

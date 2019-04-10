@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/info.css">
+		<!--<link rel="stylesheet" href="css/shepherd-theme-arrows.css">-->
+		<!-- end -->
+		<!-- 阿里图形验码 -->
+		<link type="text/css" href="data/nc.css" rel="stylesheet">
+		<script type="application/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="application/javascript" src="js/mootools.js"></script>
+		<script type="application/javascript" src="js/vue.js"></script>
+	</head>
+
+	<body>
+		<div id="pin_view_layer">
+			<div class="pin-view">
+				<div class="pin-view-wrapper">
+					<div class="main-part">
+						<div class="image-piece piece">
+							<div class="tool-bar">
+								<a onclick="" href="#" class="repin-btn btn rbtn"><span class="text"> 采集</span></a>
+								<a href="#" onclick="return false;" class="like-btn  btn-with-icon btn"><i class="heart"></i></a>
+								<div class="right-part">
+									<div class="huaban-share-unit"><span>分享</span>
+										<div class="share-btns">
+											<a data-to="weibo" title="新浪微博" target="_blank" href="" class="share-btn weibo"></a>
+											<a data-to="qzone" title="QQ空间" target="_blank" href="" class="share-btn qzone"></a>
+											<a data-to="weixin" title="微信" target="_blank" href="" class="share-btn weixin"></a>
+											<div class="more"></div>
+										</div>
+										<div class="menu">
+											<a data-to="tqq" title="腾讯微博" target="_blank" href="" class="tqq"><i></i>腾讯微博</a>
+											<a data-to="qfriends" title="QQ好友" target="_blank" href="" class="qq"><i></i>QQ 好友</a>
+											<a data-to="douban" title="豆瓣" target="_blank" href="" class="douban"><i></i>豆瓣</a>
+											<a data-to="renren" title="人人网" target="_blank" href="" class="renren"><i></i>人人网</a>
+											<div class="arr"></div>
+										</div>
+									</div>
+									<a title="查看原图" href="#" onclick="return false;" class="zoomin btn-with-icon btn"><i class="class"></i></a>
+								</div>
+							</div>
+							<div class="main-image">
+								<div id="baidu_image_holder" class="image-holder"><img :src="getImg" alt="#插画#" width="658" height="100%"></div>
+							</div>
+							<div class="tool-bar-bottom">
+								<a onclick="" href="#" class="repin-btn btn-with-icon btn"><i class="class"></i><span class="text"> 采集 <span class="num"></span></span>
+								</a>
+								<a href="#" onclick="return false;" class="like-btn btn-with-icon btn"><i class="class"></i><span class="text"> 喜欢 <span class="num"></span></span>
+								</a>
+								<a href="#" onclick="return false;" class="comment-btn btn-with-icon btn"><i class="class"></i><span class="text"> 评论 <span class="num"></span></span>
+								</a>
+								<!--btn.download-btn(href='#{imgURL(pin.file)}', target='_blank', download) #{((pin.file.type || '').substring(6) || 'jpeg').toUpperCase()}-->
+								<!--    i.new-->
+								<!--    i-->
+								<div class="right-part">
+									<a title="举报这张采集" href="#" onclick="return false;" class="report-btn btn-with-icon btn"><i class="class"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="info-piece piece">
+							<div class="info">
+								<a href="" title="一夜小雨" rel="nofollow" class="img x"><img src="img/5263413ff2533bdee6dde82fe3dbc06f9d7d2e8212ba-IEyTOW_sq75sf.jpg" data-baiduimageplus-ignore="1" class="avt"></a>
+								<div class="main">
+									<a href="" rel="nofollow">一夜小雨</a><span class="space">从</span>
+									<a href="" rel="nofollow">正哒哒ririri</a>
+								</div>
+								<div class="sub">转采于<span data-ts="1492992870" class="ts-words space">2017-04-24 08:14:30</span></div>
+							</div>
+							<div class="description">#插画#</div>
+							<div class="comments"></div>
+							<div id="pin_view_add_comment" data-id="1115384677" class="clearfix">
+								<a href="//" title="" class="img x"><img src="img/654953460733026a7ef6e101404055627ad51784a95c-B6OFs4_sq75sf.png" data-baiduimageplus-ignore="1" class="avatar"></a><textarea name="caption" placeholder="添加评论或把采集@给好友" class="clear-input"></textarea>
+								<a href="#" onclick="return false;" class="post disabled btn btn14"><span class="text"> 添加评论</span></a>
+							</div>
+							<div class="likes clearfix">
+								<h4>1喜欢</h4>
+								<a href="/n6hmgsuf0h/" title="不二直说" class="img x"><img src="//img.hb.aicdn.com/fee4bfb0b4c0d28cb63e9050959675b219622de61441-H2Sud8_sq75sf" data-baiduimageplus-ignore="1" width="46" height="46"></a>
+							</div>
+						</div>
+						<div class="baidu-ads" style="opacity: 0; display: none;">
+							<div class="close-baidu-ads"><img src="img/close_baidu_ads.svg" data-baiduimageplus-ignore="1"></div>
+							<div id="_tnh60cwc7p"><iframe id="iframeu3519936_6" name="iframeu3519936_6" src="img/cccm.html" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" style="border:0;vertical-align:bottom;margin:0;width:640px;height:60px" allowtransparency="true" width="640" height="60" frameborder="0" align="center,center"></iframe></div>
+						</div>
+						<div class="repin-info-piece clearfix two">
+							<div class="board unit">
+								<a href="http://huaban.com/boards/36073870/" rel="nofollow" class="pins x"><img src="img/a48d81b2f7a199ddc8fcf02f6116eeade08de88346a9c-3i56TQ_sq75.jpg" data-baiduimageplus-ignore="1" width="24" height="24"></a>
+								<div class="info"><span>采集到画板</span>
+									<a href="http://huaban.com/boards/36073870/" rel="nofollow" class="x">壁纸</a>
+								</div>
+								<a data-id="36073870" href="#" onclick="return false;" class="follow-btn btn"><span class="text"> 关注</span></a>
+							</div>
+							<div class="repins-from unit">
+								<a href="http://huaban.com/houzidada/" title="正哒哒ririri" class="img x"><img src="img/d5677c89cb662f7742edda7417bdb26db95539cfd44-Cz71HZ_sq75sf.jpg" data-baiduimageplus-ignore="1" width="50" height="50"></a>
+								<div class="info"><span>采集自用户</span>
+									<a href="http://huaban.com/houzidada/" class="x">正哒哒ririri</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="side-part" style="position: absolute; top: 0px; right: 0px;">
+						<div class="board-piece piece">
+							<div class="board-info">
+								<a href="http://huaban.com/weixin842070539/" title="一夜小雨" class="img x"><img src="img/5263413ff2533bdee6dde82fe3dbc06f9d7d2e8212ba-IEyTOW_sq75sf.jpg" data-baiduimageplus-ignore="1" class="avt"></a>
+								<a href="http://huaban.com/boards/36073870/" class="name x">壁纸</a>
+								<div class="sub">一夜小雨</div>
+							</div>
+							<div class="board-pins cst-scrollbar">
+								<div id="board_pins_waterfall">
+									<a href="" data-id="1115384677" class="cell x layer-view  selected" style="position: absolute; left: 0px; top: 0px;">
+										<img :src="getImg" width="86" height="100%">
+										<div class="cover"></div>
+									</a>
+								</div>
+								<div class="loading"><img src="img/loading.gif"><span>正在加载...</span></div>
+							</div>
+							<a data-id="36073870" href="#" onclick="return false;" class="follow-btn btn"><span class="text"> 关注画板</span></a>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="bottom-part">
+					<div class="pin-view-wrapper">
+						<div class="related-boards clearfix" style="display: block;">
+							<div class="title-el">该采集也在以下画板</div>
+							<div class="board-box clearfix">
+								<div data-id="51580920" data-seq="955" onclick="'pin_detail'==='pin_detail'?app.baiduTrackExposition({category: 'board', action: 'click', label: 'pin_detail'}):''" class="Board wfc ">
+									<a href="" target="_blank" class="link  x"><img src="img/86a2b20b15fd1cd238f2ffa517365ea23ffee04022646-rbP5GF_sq235.jpg" data-baiduimageplus-ignore="1" class="large"><img src="img/a48d81b2f7a199ddc8fcf02f6116eeade08de88346a9c-3i56TQ_sq75.jpg" data-baiduimageplus-ignore="1"><img src="img/c5fb0b79e211230b236112308a9e58b3bf4101d697c70-G8Zh7w_sq75.jpg" data-baiduimageplus-ignore="1"><img src="img/49c88c4389acbf783640a71a4dc8dbeb923a49341fb3b1-lJFExE_sq75.jpg" data-baiduimageplus-ignore="1">
+										<div class="shadows">
+											<div class="large-shadow"></div>
+											<div class="shadow"></div>
+											<div class="shadow"></div>
+											<div class="shadow"></div>
+										</div>
+										<div class="over ">
+											<h3>色彩</h3>
+											<h4></h4>
+											<div class="pin-count">53</div>
+										</div>
+									</a><span class="attr-mark"></span>
+									<a href="" title=" #插画#" class="hidden"><img title=" #插画#" src="img/86a2b20b15fd1cd238f2ffa517365ea23ffee04022646-rbP5GF_sq75.jpg" data-baiduimageplus-ignore="1"></a>
+									<a href="" title="#插画#" class="hidden"><img title="#插画#" src="img/a48d81b2f7a199ddc8fcf02f6116eeade08de88346a9c-3i56TQ_sq75.jpg" data-baiduimageplus-ignore="1"></a>
+									<a href="" title=" #插画#" class="hidden"><img title=" #插画#" src="img/c5fb0b79e211230b236112308a9e58b3bf4101d697c70-G8Zh7w_sq75.jpg" data-baiduimageplus-ignore="1"></a>
+									<a href="" title="插画" class="hidden"><img title="插画" src="img/49c88c4389acbf783640a71a4dc8dbeb923a49341fb3b1-lJFExE_sq75.jpg" data-baiduimageplus-ignore="1"></a>
+									<div class="FollowBoard2">
+										<a href="http://huaban.com/flhgmv1j9s/" title="李亚凡" class="img x"><img src="img/1a54a265c0fcc96d4ac6ea51300f746b50008e3ed3a-2Xa7ix_sq75sf.jpg" data-baiduimageplus-ignore="1" class="BoardAvatar"></a>
+										<a href="http://huaban.com/flhgmv1j9s/" class="BoardUserUrl x">李亚凡</a>
+										<a data-id="51580920" href="#" onclick="return false;" class="follow btn wbtn"><strong> 关注</strong><span></span></a>
+									</div>
+								</div>
+							</div>
+							<a href="#" onclick="return false;" class="load-more-board btn btn18"><span class="text"> 加载更多</span></a>
+						</div>
+						<div id="recommend-pins">
+							<div class="title-el">推荐给你的采集</div>
+							<div class="waterfall"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pin-view-arrows">
+				<a style="visibility: hidden; position: fixed; right: 17px;" class="next x layer-view"></a>
+				<a style="visibility: hidden; position: fixed; left: 0px;" class="prev x layer-view"></a>
+			</div>
+			<div id="layout_elevator_item" class="elevator-item">
+				<a id="layout_elevator" onclick="return false;" title="回到顶部" class="off"></a>
+				<a id="huaban-help"></a>
+				<a class="plus"></a>
+				<div id="help-popup" class="popup-item">
+					<div class="group">
+						<a href="https://faq.huaban.com/" target="_blank">帮助中心<i class="faq"></i></a>
+						<a href="http://huaban.com/pins/53553/" rel="nofollow">用户反馈<i class="feedback"></i></a>
+						<a id="onlineService">人工客服<i class="service"></i></a>
+					</div>
+					<div class="arr"></div>
+				</div>
+				<div id="plus-popup" class="popup-item plus-popup">
+					<div class="group">
+						<a onclick="app.showUploadDialog();">添加采集<i class="upload"></i></a>
+						<a class="add-board-item">添加画板<i class="add-board"></i></a>
+						<a href="http://huaban.com/about/goodies/">安装采集工具<i class="goodies"></i></a>
+					</div>
+					<div class="arr"></div>
+				</div>
+			</div>
+			<div style="display: none" data-img="//img.hb.aicdn.com/a48d81b2f7a199ddc8fcf02f6116eeade08de88346a9c-3i56TQ" class="zoom-layer">
+				<div class="holder"></div>
+				<div style="display: none" class="resize-zoom"></div>
+				<div class="close-zoom"></div>
+			</div>
+		</div>
+		<script type="application/javascript">
+
+         window.load = lodeGather();
+
+		function lodeGather(){
+		    var gather = findGather(3);
+		    alert(JSON.stringify(gather));
+            var gatherinfo = new Vue({
+                el:"#pin_view_layer",
+                data:gather,
+                computed:{
+                    //给img完整路径
+                    getImg:function(){
+                        return 'http://localhost/huaban/images/'+this.img;
+                    }
+                }
+            });
+		};
+
+		function findHuab(hid){
+		    var huab = null;
+            $.ajax({
+                type:"post",
+                data:{"hid":hid},
+                dataType:"json",
+                url:"/findHuab",
+                async:false,
+                success:function(data){
+                    if(data==null) return;
+                    huab = data;
+//                    alert(huab)
+                }
+            });
+            return huab;
+		}
+		function findGather(gid){
+            var gather = null;
+		    $.ajax({
+				type:"post",
+				data:{"gid":gid},
+				dataType:"json",
+				url:"/gatherFind",
+				async:false,
+                success:function(data){
+				    if(data==null) return;
+                    gather = data;
+//                    alert(gather)
+				}
+			});
+		    return gather;
+		};
+        function findUsers(uid){
+            var users = null;
+            $.ajax({
+                type:"post",
+                data:{"uid":uid},
+                dataType:"json",
+                url:"/findUsers",
+                async:false,
+                success:function(data){
+                    if(data==null) return;
+                    users = data;
+//                    alert(users)
+                }
+            });
+            return users;
+        };
+	</script>
+	</body>
+</html>

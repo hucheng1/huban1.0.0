@@ -3,16 +3,24 @@
 <mapper namespace="com.huaban.dao.IGatherDao" >
   <resultMap id="BaseResultMap" type="com.huaban.entity.Gather" >
     <id column="gid" property="gid" jdbcType="INTEGER" />
-    <result column="gname" property="gname" jdbcType="VARCHAR" />
     <result column="img" property="img" jdbcType="VARCHAR" />
     <result column="hid" property="hid" jdbcType="INTEGER" />
     <result column="lid" property="lid" jdbcType="INTEGER" />
     <result column="transpond_uid" property="transpondUid" jdbcType="INTEGER" />
     <result column="date" property="date" jdbcType="TIMESTAMP" />
+    <result column="details" property="details" jdbcType="VARCHAR"/>
   </resultMap>
   <sql id="Base_Column_List" >
-    gid, gname, img, hid, lid, transpond_uid, date
+    gid, img, hid, lid, transpond_uid, date,details
   </sql>
+  <select id="selectByHid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select * from gather
+    where hid=${hid}
+  </select>
+  <select id="selectBygid" resultMap="BaseResultMap" parameterType="int">
+    select * from gather
+    where gid=${gid}
+  </select>
   <!--查询图片-->
   <select id="selectimgAll" resultMap="BaseResultMap" parameterType="java.util.Map">
      SELECT * FROM `gather` LIMIT #{currentPage},#{pageSize}
