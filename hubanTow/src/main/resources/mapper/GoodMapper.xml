@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IGood" >
+  <resultMap id="BaseResultMap" type="com.entity.Good" >
+    <id column="fg_id" property="fgId" jdbcType="INTEGER" />
+    <result column="fg_name" property="fgName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    fg_id, fg_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from flower_good
+    where fg_id = #{fgId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from flower_good
+    where fg_id = #{fgId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.Good" >
+    insert into flower_good (fg_id, fg_name)
+    values (#{fgId,jdbcType=INTEGER}, #{fgName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.Good" >
+    insert into flower_good
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fgId != null" >
+        fg_id,
+      </if>
+      <if test="fgName != null" >
+        fg_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fgId != null" >
+        #{fgId,jdbcType=INTEGER},
+      </if>
+      <if test="fgName != null" >
+        #{fgName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Good" >
+    update flower_good
+    <set >
+      <if test="fgName != null" >
+        fg_name = #{fgName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fg_id = #{fgId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.Good" >
+    update flower_good
+    set fg_name = #{fgName,jdbcType=VARCHAR}
+    where fg_id = #{fgId,jdbcType=INTEGER}
+  </update>
+</mapper>

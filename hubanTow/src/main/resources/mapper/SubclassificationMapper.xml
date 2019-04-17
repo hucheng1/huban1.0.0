@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.ISubclassification" >
+  <resultMap id="BaseResultMap" type="com.entity.Subclassification" >
+    <id column="fs_id" property="fsId" jdbcType="INTEGER" />
+    <result column="fs_name" property="fsName" jdbcType="VARCHAR" />
+    <result column="fc_id" property="fcId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    fs_id, fs_name, fc_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from flower_subclassification
+    where fs_id = #{fsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from flower_subclassification
+    where fs_id = #{fsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.Subclassification" >
+    insert into flower_subclassification (fs_id, fs_name, fc_id
+      )
+    values (#{fsId,jdbcType=INTEGER}, #{fsName,jdbcType=VARCHAR}, #{fcId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.Subclassification" >
+    insert into flower_subclassification
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fsId != null" >
+        fs_id,
+      </if>
+      <if test="fsName != null" >
+        fs_name,
+      </if>
+      <if test="fcId != null" >
+        fc_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fsId != null" >
+        #{fsId,jdbcType=INTEGER},
+      </if>
+      <if test="fsName != null" >
+        #{fsName,jdbcType=VARCHAR},
+      </if>
+      <if test="fcId != null" >
+        #{fcId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Subclassification" >
+    update flower_subclassification
+    <set >
+      <if test="fsName != null" >
+        fs_name = #{fsName,jdbcType=VARCHAR},
+      </if>
+      <if test="fcId != null" >
+        fc_id = #{fcId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where fs_id = #{fsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.Subclassification" >
+    update flower_subclassification
+    set fs_name = #{fsName,jdbcType=VARCHAR},
+      fc_id = #{fcId,jdbcType=INTEGER}
+    where fs_id = #{fsId,jdbcType=INTEGER}
+  </update>
+</mapper>
