@@ -93,11 +93,13 @@ public class Gather {
     public String toString() {
         return "Gather{" +
                 "gid=" + gid +
-                ", gname='" + gname + '\'' +
                 ", img='" + img + '\'' +
                 ", hid=" + hid +
                 ", lid=" + lid +
                 ", transpondUid=" + transpondUid +
+                ", details='" + details + '\'' +
+                ", users=" + users +
+                ", transpondUser=" + transpondUser +
                 ", date=" + date +
                 '}';
     }

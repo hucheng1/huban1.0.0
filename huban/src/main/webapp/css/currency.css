@@ -784,13 +784,14 @@ body {
   width: 18px;
   height: 18px;
   vertical-align: middle;
-  background: url(../images/explore_icon.png) -95px 1px no-repeat;
+  background: url(img/explore_icon.png) -95px 1px no-repeat;
 }
 .follow_title{
   position: relative;
   padding-bottom: 15px;
   width: 300px;
   margin: 0 auto;
+  margin-left: 588px;
 }
 .follow_title:before{
   display: block;
@@ -866,6 +867,7 @@ body {
   margin: 16px -16px 0 0;
   overflow: hidden;
   margin-top: 0px;
+  margin-left: 65px;
 }
 .nav_image{
   position: relative;
@@ -1026,7 +1028,7 @@ body {
 .line{
   font-size: 12px;
   display: inline-block;
-  width: 100%;
+
 }
 .line a{
   color: #9E7E6B;

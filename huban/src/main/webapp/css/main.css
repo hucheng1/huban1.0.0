@@ -8262,7 +8262,8 @@ margin-right: 10px;
 	font-size: 14px;
 	color: #222;
 	line-height: 1;
-	display: inline
+	display: inline;
+	margin-left:1px;
 }
 
 .SelectOption>.line>.icon {

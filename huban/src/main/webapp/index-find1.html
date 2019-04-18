@@ -10,26 +10,9 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/main.css" />
     <script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+    <script src="js/Here with you.js" type="text/javascript"></script>
 </head>
-<script type="text/javascript">
-     $(function () {
-         //获取为你推荐的图片信息
-         $.ajax({
-             url : "img",//请求的url
-             dataType : "json",//后台数据返回类型
-             success : function(data) {//响应成功执行的方法
-                for(var i=0;i<data.length;i++){
-                    var li="<li><img src='img/"+data[i].img+"'><li>";
-                    $(".ul").append(li);
-                }
-             },
-             error : function() {//出现异常执行方法
-                 alert("出现异常啦...");
-             }
 
-         })
-     })
-</script>
 <body>
 <header>
     <!--广告轮播-->
@@ -165,13 +148,13 @@
             <hr>
         </h1>
         <ul class="list">
-            <li data-text="SD娃娃" data-href="1"><a href="#">SD娃娃</a></li>
-            <li data-text="旧物改造" data-href="2"><a href="#">旧物改造</a></li>
-            <li data-text="古风海报" data-href="3"><a href="#">古风海报</a></li>
-            <li data-text="简笔画" data-href="4"><a href="#">简笔画</a></li>
-            <li data-text="夜景手机壁纸" data-href="5"><a href="#">夜景手机壁纸</a></li>
-            <li data-text="杨洋" data-href="6"><a href="#">杨洋</a></li>
-            <li data-text="条纹服饰" data-href="7"><a href="#">条纹服饰</a></li>
+            <li data-text="SD娃娃" data-href="1"><a href="">SD娃娃</a></li>
+            <li data-text="旧物改造" data-href="2"><a href="">旧物改造</a></li>
+            <li data-text="古风海报" data-href="3"><a href="">古风海报</a></li>
+            <li data-text="简笔画" data-href="4"><a href="">简笔画</a></li>
+            <li data-text="夜景手机壁纸" data-href="5"><a href="">夜景手机壁纸</a></li>
+            <li data-text="杨洋" data-href="6"><a href="">杨洋</a></li>
+            <li data-text="条纹服饰" data-href="7"><a href="">条纹服饰</a></li>
         </ul>
     </div>
     <div class="recommend">
@@ -187,7 +170,7 @@
         </div>
         <h2>
             <hr>
-            <a href="#" id="loadmore">加载更多</a>
+                <a href="javascript:void(0)" id="loadmore" >加载更多</a>
             <hr>
         </h2>
     </div>

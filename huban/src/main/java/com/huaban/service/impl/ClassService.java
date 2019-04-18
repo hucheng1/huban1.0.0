@@ -15,13 +15,11 @@ import java.util.List;
 @Service("classService")
 public class ClassService implements IClassService{
 
+    @Autowired
     private IClassDao dao;
-
     public IClassDao getDao() {
         return dao;
     }
-
-    @Autowired
     public void setDao(IClassDao dao) {
         this.dao = dao;
     }

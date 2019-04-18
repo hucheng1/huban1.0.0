@@ -53,6 +53,7 @@
             $(this).children('.main-menu').toggleClass("in")
         }
     );
+/*
 //鼠标滚动后效果
     $(window).scroll(function () {
     if ($("body").scrollTop() >= 220) {
@@ -367,7 +368,7 @@ $(function () {
     });
 });
 
-//关注列表跳转
+/!*!//关注列表跳转
     $('.contant ul.list').on('click', 'li', function (e) {
     e.preventDefault();
     var fid = $(this).index();
@@ -393,7 +394,8 @@ $(function () {
     else if (fid == 6) {
         location.href = 'petal_tiaowenfushi.html';
     }
-});
+});*!/
+*/
 
 //附着边栏显示隐藏
     $('.group_item').hover(function () {
