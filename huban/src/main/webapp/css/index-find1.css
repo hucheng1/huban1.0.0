@@ -241,6 +241,7 @@ header>form>input:hover{
 	font-size: 18px;
 	font-weight: lighter;
 	color: #ccc;
+	margin-top: 58px
 }
 .follow>h1>hr,.recommend h1 hr{
 	width: 44%;
@@ -248,7 +249,7 @@ header>form>input:hover{
 	color: #ccc;
 	border-top: 1px solid #ccc;
 	border-bottom: none;
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
 .follow h1 hr:last-child{

@@ -7,33 +7,7 @@
 	<link rel="stylesheet" href="css/common.css"/>
 	<link rel="stylesheet" href="css/main.css" />
 	<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
-	<script type="text/javascript">
-        var fid=sessionStorage['followId'];//获取画板id
-        $(function () {
-            $.ajax({
-                type:'post',
-                url:'ju',
-                data:{'fid':fid},
-				dataType:"json",
-                success: function (data) {
-                    for(var i=0;i<data.length;i++){
-                        //读取标题与内容
-                        $("#hhh").text(data[i].hname);
-                        $(".info").text(data[i].context);
-                        //关注者头像
-                        for(var j=0;j<data[i].usersList.length;j++){
-                            var a="<a class='\"followers_item\" ' href=\"#\">\n" +
-                                "<img src='"+data[i].usersList[j].img+"' alt=\"\">\n" +
-                                "</a>"
-                            $(".followers").append(a);
-                        }
-					}
-
-				}
-            })//画板关注信息结尾
-
-        })
-	</script>
+	<script src="js/petal_bizi.js" type="text/javascript"></script>
 </head>
 <body>
 	<!-- 网页主页面 -->
@@ -145,21 +119,6 @@
 				<div class="followers">
 					<!--<a class="followers_item" href="">
 						<img src="img/120ee4e926f1acbe382a4f7dd88887decf7accbdd78-xq2Spy_sq140sf.jpg">
-					</a>
-					<a class="followers_item" href="">
-						<img src="img/9b91851d9946d0180ff805c2cf876f50482fe12e4464-GHhxlN_sq140sf.jpg">
-					</a>
-					<a class="followers_item" href="">
-						<img src="img/760b050d1c774bb04fcae9f30ef6df55dde0353bc91-gcUKHl_sq140sf.jpg">
-					</a>
-					<a class="followers_item" href="">
-						<img src="img/aa43473176f4e5da0211b9636388b26ca9efe9d9b868-08Cd4V_sq140sf.jpg">
-					</a>
-					<a class="followers_item" href="">
-						<img src="img/b58c280c0279be0df10d81d90eb66ceab7fef346de62-A064HA_sq140sf.jpg">
-					</a>
-					<a class="followers_item" href="">
-						<img src="img/6dfcf57e9a145d07269cbe7ce7bf473580b8682f8668-STpHGT_sq140sf.jpg">
 					</a>-->
 				</div>
 			</div>

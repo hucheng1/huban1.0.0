@@ -13,9 +13,9 @@ $(function () {
 
     //关注列表跳转页面
     $('.contant ul.list').on('click', 'li', function (e) {
-        e.preventDefault();
+        e.preventDefault();//防止上面的链接打开 URL
         var fid = $(this).index();
-        sessionStorage['followId'] = fid + 1;
+        sessionStorage['followId'] = fid + 1;//相同浏览器的不同页面间可以共享相同的数据
         if (fid == 0) {
             location.href = 'petal_bizi.html';
         }
@@ -59,5 +59,4 @@ function show(pageNo) {
     })
 }
 
-//关注列表跳转
 

@@ -2,6 +2,7 @@ package com.huaban;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
 
 //1.5.8.RELEASE 版本
 //import org.springframework.boot.web.support.SpringBootServletInitializer;
@@ -12,4 +13,5 @@ public class SpringBootStartApplication extends SpringBootServletInitializer{
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(App.class);
     }
+
 }
