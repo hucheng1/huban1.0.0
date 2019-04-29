@@ -7,8 +7,8 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/huban/pom.xml" />
         <option value="$PROJECT_DIR$/hubanTow/pom.xml" />
+        <option value="$PROJECT_DIR$/huban/pom.xml" />
       </list>
     </option>
   </component>

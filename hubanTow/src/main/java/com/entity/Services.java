@@ -1,6 +1,6 @@
 package com.entity;
 
-public class Service {
+public class Services {
     private Integer fseId;
 
     private String fseName;
@@ -130,4 +130,6 @@ public class Service {
     public void setFseText(String fseText) {
         this.fseText = fseText == null ? null : fseText.trim();
     }
+
+
 }

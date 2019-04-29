@@ -9,24 +9,29 @@
   <sql id="Base_Column_List" >
     fdg_id, fg_id, fd_id
   </sql>
+  <select id="selectAlldg" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from floewr_designer_good
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from "floewr_designer good"
+    from floewr_designer_good
     where fdg_id = #{fdgId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from "floewr_designer good"
+    delete from floewr_designer_good
     where fdg_id = #{fdgId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.entity.DesignerGood" >
-    insert into "floewr_designer good" (fdg_id, fg_id, fd_id
+    insert into floewr_designer_good (fdg_id, fg_id, fd_id
       )
     values (#{fdgId,jdbcType=INTEGER}, #{fgId,jdbcType=INTEGER}, #{fdId,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.entity.DesignerGood" >
-    insert into "floewr_designer good"
+    insert into floewr_designer_good
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="fdgId != null" >
         fdg_id,
@@ -51,7 +56,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.entity.DesignerGood" >
-    update "floewr_designer good"
+    update floewr_designer_good
     <set >
       <if test="fgId != null" >
         fg_id = #{fgId,jdbcType=INTEGER},
@@ -63,7 +68,7 @@
     where fdg_id = #{fdgId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.entity.DesignerGood" >
-    update "floewr_designer good"
+    update floewr_designer_good
     set fg_id = #{fgId,jdbcType=INTEGER},
       fd_id = #{fdId,jdbcType=INTEGER}
     where fdg_id = #{fdgId,jdbcType=INTEGER}

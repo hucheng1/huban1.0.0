@@ -1,3 +1,5 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <!-- saved from url=(0032)https://muse.huaban.com/services -->
 <html lang="en">
@@ -7,8 +9,6 @@
     <title data-react-helmet="true"> 设计服务 - 花瓣美思 - 原创设计平台</title>
     <meta data-react-helmet="true" name="description" content="花瓣美思 - 高质量、高效率、无风险的设计服务">
     <link href="./designService/app-fe7f8bdcdd789e5021a6.css" rel="stylesheet">
-    <script type="text/javascript" async="" src="./designService/analytics.js"></script>
-    <script src="./designService/hm.js"></script>
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -18,7 +18,6 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    <script src="./designService/js" async=""></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -29,7 +28,9 @@
         gtag('js', new Date());
         gtag('config', 'UA-123333106-2');
     </script>
-    <style type="text/css">#YSF-BTN-HOLDER {
+    <style type="text/css">
+
+        #YSF-BTN-HOLDER {
         position: fixed;
         right: 30px;
         bottom: 24px;
@@ -382,7 +383,8 @@
         position: fixed !important;
         left: 0;
         right: 0;
-    }</style>
+    }
+    </style>
     <link rel="shortcut icon" href="https://muse.huaban.com/assets/57817251462a6d174e80efc8d975d352.ico"
           data-react-helmet="true">
 </head>
@@ -460,33 +462,17 @@
             </nav>
         </div>
         <div class="ui container offset services-page"><!-- react-empty: 1736 -->
-            <div class="ui segments facets">
+            <div id="appy" class="ui segments facets">
                 <div class="ui segment search facets">
                     <div class="ui middle filled grid">
                         <div class="column label">分类:</div>
-                        <nav class="middle column list"><a class="item active" href="">全部</a><a
-                                class="item " href="">
-                            <!-- react-text: 1744 -->LOGO/品牌<!-- /react-text --></a><a class="item "
-                                                                                       href="">
-                            <!-- react-text: 1746 -->平面设计<!-- /react-text --></a><a class="item "
-                                                                                    href="">
-                            <!-- react-text: 1748 -->UI 设计<!-- /react-text --></a><a class="item "
-                                                                                     href="">
-                            <!-- react-text: 1750 -->绘画/插画<!-- /react-text --></a><a class="item "
-                                                                                     href="">
-                            <!-- react-text: 1752 -->工业/产品设计<!-- /react-text --></a><a class="item "
-                                                                                       href="">
-                            <!-- react-text: 1754 -->影视/动画<!-- /react-text --></a><a class="item ">
-                            <!-- react-text: 1756 -->摄影<!-- /react-text --></a><a class="item ">
-                            <!-- react-text: 1758 -->服装设计<!-- /react-text --></a><a class="item ">
+                        <nav class="middle column list" id="appt">
+                            <a class="item active" href="designService.jsp">全部</a>
 
-                            <!-- react-text: 1760 -->室内设计<!-- /react-text --></a><a class="item ">
-
-                            <!-- react-text: 1762 -->造型设计<!-- /react-text --></a><a class="item ">
-                            <!-- react-text: 1764 -->私家定制<!-- /react-text --></a><a class="item ">
-                            <!-- react-text: 1766 -->其它<!-- /react-text --></a></nav>
+                           </nav>
                     </div>
                 </div>
+
             </div>
             <div class="search dimension">
                 <div class="ui dropdown" tabindex="0"><label class="text">推荐排序</label><i class="angle down icon"></i>
@@ -511,253 +497,13 @@
             </div>
             <div class="ui divider"></div>
             <div class="search result"><!-- react-empty: 2048 -->
-                <div class="ui four cards">
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280.jpg"></a>
-                        <div class="content"><label class="title">美食拍摄，产品拍摄</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip">提供可选拓展</p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="YuanC.html"><img class=""
-                                                  src="./designService/280x280(1).jpg"></a>
-                        <div class="content"><label class="title">原创商业插画/漫画</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip">提供加急服务</p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(2).jpg"></a>
-                        <div class="content"><label class="title">海报设计</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(3).jpg"></a>
-                        <div class="content"><label class="title">海报和长图视觉设计</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(4).jpg"></a>
-                        <div class="content"><label class="title">二维动画 商业广告 MG动画</label></div>
-                        <footer class="extra content"><label class="price"><!-- react-text: 2099 -->￥
-                            <!-- /react-text --><!-- react-text: 2100 -->200<!-- /react-text -->
-                            <small><!-- react-text: 2102 -->/<!-- /react-text --><!-- react-text: 2103 -->秒
-                                <!-- /react-text --></small>
-                        </label>
-                            <p class="tip">提供加急服务，提供可选拓展</p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(5).jpg"></a>
-                        <div class="content"><label class="title">初稿创意（定金预付款）</label></div>
-                        <footer class="extra content"><label class="price"><!-- react-text: 2114 -->￥
-                            <!-- /react-text --><!-- react-text: 2115 -->9600<!-- /react-text -->
-                            <small><!-- react-text: 2117 -->/<!-- /react-text --><!-- react-text: 2118 -->单
-                                <!-- /react-text --></small>
-                        </label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(6).gif"></a>
-                        <div class="content"><label class="title">插画</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(7).jpg"></a>
-                        <div class="content"><label class="title">广告创意插画海报</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(8).jpg"></a>
-                        <div class="content"><label class="title">配图插画</label></div>
-                        <footer class="extra content"><label class="price"><!-- react-text: 2149 -->￥
-                            <!-- /react-text --><!-- react-text: 2150 -->800<!-- /react-text -->
-                            <small><!-- react-text: 2152 -->/<!-- /react-text --><!-- react-text: 2153 -->张
-                                <!-- /react-text --></small>
-                        </label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(9).jpg"></a>
-                        <div class="content"><label class="title">海报设计</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip">提供加急服务</p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(10).gif"></a>
-                        <div class="content"><label class="title">插画设计</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(11).jpg"></a>
-                        <div class="content"><label class="title">企业海报设计/ VI设计 / 品牌设计</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(12).jpg"></a>
-                        <div class="content"><label class="title">活动宣传品设计</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(13).jpg"></a>
-                        <div class="content"><label class="title">扁平插画设计</label></div>
-                        <footer class="extra content"><label class="price"><!-- react-text: 2204 -->￥
-                            <!-- /react-text --><!-- react-text: 2205 -->800<!-- /react-text -->
-                            <small><!-- react-text: 2207 -->/<!-- /react-text --><!-- react-text: 2208 -->幅
-                                <!-- /react-text --></small>
-                        </label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(14).jpg"></a>
-                        <div class="content"><label class="title">LOGO设计</label></div>
-                        <footer class="extra content"><label class="price"><!-- react-text: 2219 -->￥
-                            <!-- /react-text --><!-- react-text: 2220 -->2000<!-- /react-text -->
-                            <small><!-- react-text: 2222 -->/<!-- /react-text --><!-- react-text: 2223 -->个
-                                <!-- /react-text --></small>
-                        </label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(15).gif"></a>
-                        <div class="content"><label class="title">动画设计</label></div>
-                        <footer class="extra content"><label class="price"><!-- react-text: 2234 -->￥
-                            <!-- /react-text --><!-- react-text: 2235 -->800<!-- /react-text -->
-                            <small><!-- react-text: 2237 -->/<!-- /react-text --><!-- react-text: 2238 -->个
-                                <!-- /react-text --></small>
-                        </label>
-                            <p class="tip">提供加急服务，提供可选拓展</p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(16).jpg"></a>
-                        <div class="content"><label class="title">广东电信爱音乐万圣节h5页面</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(17).jpg"></a>
-                        <div class="content"><label class="title">插画包装设计</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(18).jpg"></a>
-                        <div class="content"><label class="title">LOGO丨字体 合集</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip">提供可选拓展</p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href=""><img class=""
-                                        src="./designService/280x280(19).jpg"></a>
-                        <div class="content"><label class="title">视觉设计</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip">提供加急服务</p></footer>
-                    </div>
+                <div id="appe" class="ui four cards">
                 </div>
             </div>
             <div class="ui basic center aligned segment">
-                <nav class="ui pagination menu"><a class="item"
-                                                   href="https://muse.huaban.com/services?limit=20&amp;page=1"><i
-                        class="icon angle double left"></i></a><a class="item"
-                                                                  href="https://muse.huaban.com/services?limit=20&amp;page=1">1</a><a
-                        class="item" href="https://muse.huaban.com/services?limit=20&amp;page=2">2</a><a class="item"
-                                                                                                         href="https://muse.huaban.com/services?limit=20&amp;page=3">3</a><a
-                        class="item" href="https://muse.huaban.com/services?limit=20&amp;page=4">4</a><a class="item"
-                                                                                                         href="https://muse.huaban.com/services?limit=20&amp;page=5">5</a><a
-                        class="item" href="https://muse.huaban.com/services?limit=20&amp;page=6">6</a><a class="item"
-                                                                                                         href="https://muse.huaban.com/services?limit=20&amp;page=7">7</a><a
-                        class="item" href="https://muse.huaban.com/services?limit=20&amp;page=8">8</a><a class="item"
-                                                                                                         href="https://muse.huaban.com/services?limit=20&amp;page=9">9</a><span
-                        class="item">...</span><a class="item"
-                                                  href="https://muse.huaban.com/services?limit=20&amp;page=99">99</a><a
-                        class="item" href="https://muse.huaban.com/services?limit=20&amp;page=100">100</a><a
-                        class="item" href="https://muse.huaban.com/services?limit=20&amp;page=2"><i
-                        class="icon angle right"></i></a><a class="item"
-                                                            href="https://muse.huaban.com/services?limit=20&amp;page=100"><i
-                        class="icon angle double right"></i></a></nav>
+                <nav class="ui pagination menu"id="apage" >
+
+                </nav>
             </div>
         </div>
         <footer class="site footer" data-reactid="216">
@@ -875,29 +621,113 @@
 <script src="js/jquery-1.11.0.min.js" type="application/javascript"></script>
 <script>
     window.load=CLoad();
+    window.load=GLoad();
+
+    function GLoad(){
+
+       var c= getRequest();
+       var fcid=c.fcId;
+       var fsid=c.fsId;
+       var pageNo=c.pageNo;
+
+       $.post('/selectCGao',{"fcid":fcid,"fsid":fsid,"pageNo":pageNo},function (data) {
+            if(data==null){
+               return;
+            }
+
+        for(var v=0;v<data.ser.length;v++){
+                var price=data.ser[v].fsePrice;
+                if(price==null||price==""){
+                    price="价格面议";
+                }else{
+                    price=price+"/";
+                }
+
+                var unit=data.ser[v].fsePriceunit;
+                if(unit==""||unit==null){
+                    unit="";
+                }
+
+            $("#appe").append(' <div class="ui service link card">\n' +
+                '                        <div class="actions">\n' +
+                '                            <button class="ui icon button fav"></button>\n' +
+                '                        </div>\n' +
+                '                        <a href="YuanC.html?fseid='+data.ser[v].fseId+'"><img class=""\n' +
+                '                                        src="./designService/'+data.ser[v].fseImg+'"></a>\n' +
+                '                        <div class="content"><label class="title">'+data.ser[v].fseName+'</label></div>\n' +
+                '                        <footer class="extra content"><label class="price">'+price+unit+'</label>\n' +
+                '                            <p class="tip">提供可选拓展</p></footer>\n' +
+                '                    </div>')
+        }
+
+            $("#apage").append('<a class="item" href="/designService.jsp?fcid='+fcid+'&fsid='+fsid+'&pageNo=1">\n'+
+                '  <i class="icon angle double left"></i>');
+
+            for(var k=1;k<=data.page.totalPage;k++){//循环页数<a>标签
+                    $("#apage").append(' <a class="item" href="/designService.jsp?fcid='+fcid+'&fsid='+fsid+'&pageNo='+k+'">'+k+'</a>   ');
+            }
+           var p=0;
+           for(var k=1;k<=data.page.totalPage;k++) {
+               var p=k++;
+           }
+            $("#apage").append(' <a class="item" href="/designService.jsp?fcid=' + fcid + '&fsid=' + fsid + '&pageNo='+ p + '"><i class="icon angle right"></i></a>' +
+                ' <a class="item" href="/designService.jsp?fcid=' + fcid + '&fsid=' + fsid + '&pageNo='+ p + '"\n' +
+                '               <i class="icon angle double right"></i></a>')
+        },"json");
+    }
+
+
     function CLoad(){
         $.post('/CateSelctAll','',function(data){
             if(data==null){
                 return;
             }
-            alert(JSON.stringify(data));
+//           alert(JSON.stringify(data));
+            var zhi=getRequest();
+            for(var i=0;i<data.length;i++){
+                $("#appt").append("<a href='designService.jsp?fcId="+data[i].fcId+"' class='item '>\n" + data[i].fcName+"</a>");
+
+                if(zhi!=null&&Number(zhi.fcId)==data[i].fcId){//查子类
+                    var subs=data[i].subs;
+                    $("#appy").append(' <div class="ui segment divider"></div>\n' +
+                        '                <div class="ui segment search facets">\n' +
+                        '                    <div class="ui middle filled grid">\n' +
+                        '                        <div class="column label">子类:</div>\n' +
+                        '                        <nav id="appr" class="middle column list">\n' +
+                        '                        </nav>\n' +
+                        '                    </div>\n' +
+                        '                </div>');
+                    for(var j=0;j<subs.length;j++){//list
+                        $("#appr").append("<a href='designService.jsp?fsId="+subs[j].fsId+"' class='item'>\n" + subs[j].fsName+"</a>");
+                    }
+
+                }
+            }
+
 
         },'json')
     }
+    //返回?后的json对象
+    function getRequest() {
+        //获取url中"?"符后的字串
+        var url = location.search;
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                //theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                //theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+                theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+
 </script>
-<!--<script src="./designService/jquery.min.js"></script>
-<script src="./designService/jquery.address.min.js"></script>
-<script src="./designService/favico.min.js"></script>
-<script src="./designService/Autolinker.min.js"></script>
-<script src="./designService/moment-with-locales.min.js"></script>
-<script src="./designService/jquery.viewportchecker.min.js"></script>
-<script src="./designService/93811fa069cd176485758aa935f97919.js" defer="" async=""></script>
-<script src="./designService/Sortable.min.js"></script>
-<script src="./designService/semantic.min.js"></script>
-<script src="./designService/xss.min.js"></script>
-<script src="./designService/app-fe7f8bdcdd789e5021a6.js"></script>-->
+
 <div style="top: 0px; left: 0px; visibility: hidden; position: absolute; width: 1px; height: 1px;">
-    <iframe style="height:0px; width:0px;" src="./designService/delegate.html"></iframe>
+    <iframe style="height:0px; width:0px;" src="./designService/delegate.jsp"></iframe>
 </div>
 <div class="layer-6" id="YSF-BTN-HOLDER">
     <div id="YSF-CUSTOM-ENTRY-6"><img src="./designService/6.png"></div>
@@ -907,7 +737,7 @@
         <span id="YSF-BTN-ARROW"></span><span id="YSF-BTN-CLOSE"></span></div>
 </div>
 <div id="YSF-PANEL-INFO" class="ysf-chat-layer" data-switch="0">
-    <iframe src="./designService/iframe.html" id="YSF-IFRAME-LAYER"
+    <iframe src="./designService/iframe.jsp" id="YSF-IFRAME-LAYER"
             style="width: 100%; height: 100%;"></iframe>
 </div>
 </body>

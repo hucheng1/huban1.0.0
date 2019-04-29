@@ -4,14 +4,19 @@
   <resultMap id="BaseResultMap" type="com.entity.Categorize" >
     <id column="fc_id" property="fcId" jdbcType="INTEGER" />
     <result column="fc_name" property="fcName" jdbcType="VARCHAR" />
+   <collection property="subs" ofType="com.entity.Subclassification" column="fc_id" javaType="java.util.List" >
+     <id column="fs_id" property="fsId" jdbcType="INTEGER" />
+     <result column="fs_name" property="fsName" jdbcType="VARCHAR" />
+     <result column="fc_id" property="fcId" jdbcType="INTEGER" />
+   </collection>
   </resultMap>
   <sql id="Base_Column_List" >
     fc_id, fc_name
   </sql>
+
   <select id="selectAllc" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from flower_categorize
+   SELECT *  FROM flower_categorize AS c
+    INNER JOIN flower_subclassification AS s ON c.fc_id=s.fc_id
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 

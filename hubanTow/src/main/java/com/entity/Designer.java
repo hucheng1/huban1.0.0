@@ -1,5 +1,7 @@
 package com.entity;
 
+import java.util.List;
+
 public class Designer {
     private Integer fdId;
 
@@ -12,6 +14,47 @@ public class Designer {
     private String fdIntro;
 
     private String fdAddress;
+
+    private String fdimges;
+
+    private int counts;
+
+    public int getCounts() {
+        return counts;
+    }
+
+    public void setCounts(int counts) {
+        this.counts = counts;
+    }
+
+    public String getFdimges() {
+        return fdimges;
+    }
+
+    public void setFdimges(String fdimges) {
+        this.fdimges = fdimges;
+    }
+
+    private List<Good>good;
+
+    private List<Services> ser;
+
+    public List<Good> getGood() {
+        return good;
+    }
+
+    public void setGood(List<Good> good) {
+        this.good = good;
+    }
+
+    public List<Services> getSer() {
+        return ser;
+    }
+
+    public void setSer(List<Services> ser) {
+        this.ser = ser;
+    }
+
 
     public Integer getFdId() {
         return fdId;

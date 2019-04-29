@@ -4,13 +4,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
-    <title data-react-helmet="true">原创商业插画/漫画 - 设计服务 - 花瓣美思 - 原创设计平台</title>
+    <title data-react-helmet="true">设计服务详情 - 花瓣美思 - 原创设计平台</title>
     <meta data-react-helmet="true" name="description" content="花瓣美思 - 高质量、高效率、无风险的设计服务">
     <link data-react-helmet="true" rel="shortcut icon"
           href="https://muse.huaban.com/assets/57817251462a6d174e80efc8d975d352.ico">
     <link href="./YuanC/app-fe7f8bdcdd789e5021a6.css" rel="stylesheet">
-    <script type="text/javascript" async="" src="./YuanC/analytics.js"></script>
-    <script src="./YuanC/hm.js"></script>
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -20,7 +18,6 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    <script src="./YuanC/js" async=""></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -441,59 +438,8 @@
         <div class="ui container offset">
             <div class="ui service detail grid"><!-- react-empty: 1308 -->
                 <div class="nine wide column">
-                    <div class="ui left padded segment">
-                        <nav class="ui breadcrumb"><a class="section"
-                                                      href="">设计服务</a><i
-                                class="icon double right angle"></i><span class="section">原创商业插画/漫画</span></nav>
-                        <div class="ui title header">原创商业插画/漫画</div>
-                        <div class="banners"><a
-                                href=""
-                                title="夏3.jpg" target="_blank"><img class=""
-                                                                    src="./YuanC/880.jpg"></a>
-                        </div>
-                        <div class="description"><h3 class="ui header">服务说明</h3>
-                            <div class="block view">
-                                <div class="image paragraph text center"><a
-                                        href=""
-                                        title="春2.jpg" target="_blank"><img class=""
-                                                                            src="./YuanC/820.jpg"></a>
-                                </div>
-                                <div class="image paragraph text center"><a
-                                        href=""
-                                        title="冬1.jpg" target="_blank"><img class=""
-                                                                            src="./YuanC/820(1).jpg"></a>
-                                </div>
-                                <div class="image paragraph text center"><a
-                                        href=""
-                                        title="圣诞拆礼物20171128.jpg" target="_blank"><img class=""
-                                                                                       src="./YuanC/820(2).jpg"></a>
-                                </div>
-                                <div class="image paragraph text center"><a
-                                        href=""
-                                        title="夏1.jpg" target="_blank"><img class=""
-                                                                            src="./YuanC/820(3).jpg"></a>
-                                </div>
-                                <div class="image paragraph text center"><a
-                                        href=""
-                                        title="夏3.jpg" target="_blank"><img class=""
-                                                                            src="./YuanC/820(4).jpg"></a>
-                                </div>
-                                <div class="image paragraph text center"><a
-                                        href=""
-                                        title="IMG_0261.jpg" target="_blank"><img class=""
-                                                                                  src="./YuanC/820(5).jpg"></a>
-                                </div>
-                                <div class="image paragraph text center"><a
-                                        href=""
-                                        title="IMG_0282.jpg" target="_blank"><img class=""
-                                                                                  src="./YuanC/820(6).jpg"></a>
-                                </div>
-                                <div class="image paragraph text center"><a
-                                        href=""
-                                        title="IMG_E0327.jpg" target="_blank"><img class=""
-                                                                                   src="./YuanC/820(7).jpg"></a>
-                                </div>
-                            </div>
+                    <div class="ui left padded segment" id="al" >
+
                         </div>
                         <div class="description"><h3 class="ui header">预估完成时间</h3>
                             <p>3天</p></div>
@@ -649,24 +595,85 @@
                                                                            data-reactid="247"></i>
             <!-- react-text: 248 -->联系客服<!-- /react-text --></span></div>
 </div>
+<script src="js/jquery-1.11.0.min.js" type="application/javascript"></script>
 <script>
+window.load=selectSeall();
+window.load=selectText();
 
+    function selectSeall(){
+
+        var c=getRequest();
+        var fseid=c.fseid;
+
+        $.post('/selectSeall',{"fseid":fseid},function(data){
+            if(data==null){
+                return;
+            }
+            //alert(JSON.stringify(data));
+
+
+                $("#al").append(' <nav class="ui breadcrumb"><a class="section"\n' +
+                    '                                                      href="">设计服务</a><i\n' +
+                    '                                class="icon double right angle"></i><span class="section">'+data.fseName+'</span></nav>\n' +
+                    '                        <div class="ui title header">'+data.fseName+'</div>\n' +
+                    '                        <div class="banners"><a\n' +
+                    '                                href=""\n' +
+                    '                                title="" target="_blank"><img class=""\n' +
+                    '                                                                    src="./YuanC/'+data.fseImg+'"></a>\n' +
+                    '                        </div>\n' +
+                    '                        <div class="description" id="hh"></div>')
+
+
+
+        },'json')
+    }
+
+    function selectText(){
+
+        var c=getRequest();
+        var fseid=c.fseid;
+
+        $.post('/selectText',{"fseid":fseid},function(data){
+            if(data==null){
+                return;
+            }
+            alert(JSON.stringify(data));
+            for(var j=0;j<data.length;j++){
+                $("#hh").append('<h3 class="ui header">'+data[j].text+'</h3>\n' +
+                    '                            <div class="block view">\n' +
+                    '                                <div class="image paragraph text center"><a\n' +
+                    '                                        href=""\n' +
+                    '                                        title="" target="_blank"><img class=""\n' +
+                    '                                                                            src="./YuanC/'+data[j].img+'"></a>\n' +
+                    '                                ')
+            }
+
+
+
+
+        })
+    }
+
+
+
+
+    //返回?后的json对象
+    function getRequest() {
+        //获取url中"?"符后的字串
+        var url = location.search;
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                //theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                //theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+                theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
 </script>
-<script src="./YuanC/jquery.min.js"></script>
-<script src="./YuanC/jquery.address.min.js"></script>
-<script src="./YuanC/favico.min.js"></script>
-<script src="./YuanC/Autolinker.min.js"></script>
-<script src="./YuanC/moment-with-locales.min.js"></script>
-<script src="./YuanC/jquery.viewportchecker.min.js"></script>
-<script src="./YuanC/93811fa069cd176485758aa935f97919.js" defer=""
-        async=""></script>
-<script src="./YuanC/Sortable.min.js"></script>
-<script src="./YuanC/semantic.min.js"></script>
-<script src="./YuanC/xss.min.js"></script>
-<script src="./YuanC/app-fe7f8bdcdd789e5021a6.js"></script>
-<div style="top: 0px; left: 0px; visibility: hidden; position: absolute; width: 1px; height: 1px;">
-    <iframe style="height:0px; width:0px;" src="./YuanC/delegate.html"></iframe>
-</div>
 <div class="layer-6" id="YSF-BTN-HOLDER">
     <div id="YSF-CUSTOM-ENTRY-6"><img src="./YuanC/6.png"></div>
     <span id="YSF-BTN-CIRCLE"></span>
@@ -675,8 +682,6 @@
         <span id="YSF-BTN-ARROW"></span><span id="YSF-BTN-CLOSE"></span></div>
 </div>
 <div id="YSF-PANEL-INFO" class="ysf-chat-layer" data-switch="0">
-    <iframe src="./YuanC/iframe.html" id="YSF-IFRAME-LAYER"
-            style="width: 100%; height: 100%;"></iframe>
 </div>
 </body>
 </html>
