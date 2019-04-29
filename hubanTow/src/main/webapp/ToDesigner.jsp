@@ -6,13 +6,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
-    <title data-react-helmet="true">静静Meow的个人主页 - 花瓣美思 - 原创设计平台</title>
+    <title data-react-helmet="true">个人主页 - 花瓣美思 - 原创设计平台</title>
     <meta data-react-helmet="true" name="description" content="花瓣美思 - 高质量、高效率、无风险的设计服务">
     <link data-react-helmet="true" rel="shortcut icon"
           href="https://muse.huaban.com/assets/57817251462a6d174e80efc8d975d352.ico">
     <link href="ToDesigner/app-fe7f8bdcdd789e5021a6.css" rel="stylesheet">
-    <script type="text/javascript" async="" src="ToDesigner/analytics.js.下载"></script>
-    <script src="ToDesigner/hm.js.下载"></script>
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -22,7 +20,6 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    <script src="ToDesigner/js" async=""></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -86,7 +83,7 @@
         filter: alpha(opacity=100);
         opacity: 1;
         background: url(https://qiyukf.com/sdk//res/img/sdk/bg_floatMsg2x.png) no-repeat;
-        background: url(https://qiyukf.com/sdk//res/img/sdk/bg_floatMsg.png);
+        background: url(https://qiyukf.com/sdk//res/img/sdk/bg_floatMsg.png) 9;
         background-size: 278px 80px;
         z-index: 1;
     }
@@ -442,10 +439,10 @@
         </div>
         <div class="ui container offset" data-reactid="36">
             <div class="user-home" data-reactid="37"><!-- react-empty: 108 -->
-                <div class="user home page">
+                <div class="user home page" >
                     <div class="ui grid">
-                        <div class="nine wide column">
-                            <div class="user dashboard"><img class="ui image"
+                   <div class="nine wide column" id="tod" >
+                   <%--         <div class="user dashboard"><img class="ui image"
                                                              src="ToDesigner/120x120">
                                 <div class="ui dash"><h3 class="username">静静Meow</h3>
                                     <div class="ui horizontal tags list">
@@ -459,7 +456,7 @@
                                     <div class="right floated actions"><span class="ui icon basic button"><i
                                             class="graph message"></i><!-- react-empty: 126 --></span></div>
                                 </div>
-                            </div>
+                            </div>--%>
                         </div>
                         <div class="three wide column extra list">
                             <div class="ui middle aligned detail list">
@@ -484,155 +481,12 @@
                         </div>
                     </div>
                 </div>
-                <nav class="ui secondary pointing menu"><a class="item active"
-                                                           href="https://muse.huaban.com/users/17041754">设计服务</a><a
-                        class="item" href="https://muse.huaban.com/users/17041754/creations">原创</a><a class="item"
-                                                                                                      href="https://muse.huaban.com/users/17041754/information">个人资料</a>
-                    <div class="right menu"><a class="item" target="_blank" href="http://huaban.com/jingjingmeow/">
+                <nav class="ui secondary pointing menu" id="a">
+                    <div class="right menu"><a class="item" target="_blank" href="">
                         <!-- react-text: 156 -->他/她<!-- /react-text --><!-- react-text: 157 -->的花瓣主页<!-- /react-text --><i
                             class="icon double angle right"></i></a></div>
                 </nav>
-                <div class="ui four cards">
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1Q1vsSaUTao"><img class=""
-                                                                                    src="ToDesigner/280x280"></a>
-                        <div class="content"><label class="title">推文漫画插图</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1Q1vF4jyocq"><img class=""
-                                                                                    src="ToDesigner/280x280(1)"></a>
-                        <div class="content"><label class="title">推文黑白漫画插图</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1PyA9K2NeAS"><img class=""
-                                                                                    src="ToDesigner/280x280(2)"></a>
-                        <div class="content"><label class="title">推文插图</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1PMvbkRT7Cq"><img class=""
-                                                                                    src="ToDesigner/280x280(3)"></a>
-                        <div class="content"><label class="title">礼物定制（石塑黏土半立体）</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1PMuUUhfnSS"><img class=""
-                                                                                    src="ToDesigner/280x280(4)"></a>
-                        <div class="content"><label class="title">礼物定制</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1OOHpmvR3Ws"><img class=""
-                                                                                    src="ToDesigner/280x280(5)"></a>
-                        <div class="content"><label class="title">H5插图、闪屏</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1OOHgZQv08C"><img class=""
-                                                                                    src="ToDesigner/280x280(6)"></a>
-                        <div class="content"><label class="title">短漫画、插图</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1NtjQbhXhqo"><img class=""
-                                                                                    src="ToDesigner/280x280(7)"></a>
-                        <div class="content"><label class="title">插画设计</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1NphidGhbO2"><img class=""
-                                                                                    src="ToDesigner/280x280(8)"></a>
-                        <div class="content"><label class="title">插画</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1MtQGpBN886"><img class=""
-                                                                                    src="ToDesigner/280x280(9)"></a>
-                        <div class="content"><label class="title">娃娃订做喇~~</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1MO2g9e5e0M"><img class=""
-                                                                                    src="ToDesigner/280x280(10)"></a>
-                        <div class="content"><label class="title">短漫画</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1MdiFxKMIcC"><img class=""
-                                                                                    src="ToDesigner/280x280(11)"></a>
-                        <div class="content"><label class="title">几格漫画</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1LvHTGWmR66"><img class=""
-                                                                                    src="ToDesigner/280x280(12)"></a>
-                        <div class="content"><label class="title">定制头像喇~</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
-                    <div class="ui service link card">
-                        <div class="actions">
-                            <button class="ui icon button fav"></button>
-                        </div>
-                        <a href="https://muse.huaban.com/services/1LOJ96Iily2"><img class=""
-                                                                                    src="ToDesigner/280x280(13)"></a>
-                        <div class="content"><label class="title">婚礼插画 婚纱相簿封面定做</label></div>
-                        <footer class="extra content"><label class="price">价格面议</label>
-                            <p class="tip"></p></footer>
-                    </div>
+                <div class="ui four cards" id="ad">
                 </div>
             </div>
         </div>
@@ -693,24 +547,89 @@
                                                                           data-reactid="91"></i><!-- react-text: 92 -->联系客服
             <!-- /react-text --></span></div>
 </div>
+<script src="js/jquery-1.11.0.min.js" type="application/javascript"></script>
 <script>
+    window.load=toSelectAll();
+    window.load=ByfdidSelect();
+    function toSelectAll(){
+
+        var c=getRequest();
+        var fdid=c.fdid;
+        $.post('/toSelectAll',{'fdid':fdid},function(data){
+            if(data==null){
+              return;
+            }
+            for(var i=0;i<data.length;i++){
 
 
+                $("#a").append('<a class="item active" href="ToDesigner.jsp?fdid='+data[i].fdId+'">设计服务</a><a\n' +
+                    '                        class="item " href="ToFile.html?fdid='+data[i].fdId+'">个人资料</a>')
+
+                $("#tod").append(' <div class="user dashboard"><img class="ui image"\n' +
+                    '                                                             src="ToDesigner/'+data[i].fdimges+'">\n' +
+                    '                                <div class="ui dash"><h3 class="username">'+data[i].fdTruename+'</h3>\n' +
+                    '                                    <div class="ui horizontal tags list">\n' +
+                    '                                        <div class="item tags" id="biao">' +
+                    '                                               </div>\n' +
+                    '                                        <div class="item">'+data[i].fdAddress+'</div>\n' +
+                    '                                    </div>\n' +
+                    '                                    <div class="description">\n' +
+                    '                                      '+data[i].fdIntro+'\n' +
+                    '                                    </div>\n' +
+                    '                                    <div class="right floated actions"><span class="ui icon basic button"><i\n' +
+                    '                                            class="graph message"></i><!-- react-empty: 126 --></span></div>\n' +
+                    '                                </div>\n' +
+                    '                            </div>')
+
+            }
+
+            for(var m=0;m<data[0].good.length;m++){
+              $("#biao").append('<span class="tag">'+data[0].good[m].fgName+'</span>')
+            }
+        },'json')
+    }
+
+    function ByfdidSelect(){
+        var c=getRequest();
+        var fdid=c.fdid;
+        $.post('/ByfdidSelect',{"fdid":fdid},function(data){
+            if(data==null){
+                return;
+            }
+
+            for(var i=0;i<data.length;i++){
+                $("#ad").append(' <div class="ui service link card">\n' +
+                    '                        <div class="actions">\n' +
+                    '                            <button class="ui icon button fav"></button>\n' +
+                    '                        </div>\n' +
+                    '                        <a href=""><img class=""\n' +
+                    '                                                                                    src="ToDesigner/'+data[i].fseImg+'"></a>\n' +
+                    '                        <div class="content"><label class="title">'+data[i].fseName+'</label></div>\n' +
+                    '                        <footer class="extra content"><label class="price">价格面议</label>\n' +
+                    '                            <p class="tip"></p></footer>\n' +
+                    '                    </div>')
+            }
+
+
+        },'json')
+    }
+
+    function getRequest() {
+        //获取url中"?"符后的字串
+        var url = location.search;
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                //theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                //theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+                theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
 </script>
-<script src="ToDesigner/jquery.min.js.下载"></script>
-<script src="ToDesigner/jquery.address.min.js.下载"></script>
-<script src="ToDesigner/favico.min.js.下载"></script>
-<script src="ToDesigner/Autolinker.min.js.下载"></script>
-<script src="ToDesigner/moment-with-locales.min.js.下载"></script>
-<script src="ToDesigner/jquery.viewportchecker.min.js.下载"></script>
-<script src="ToDesigner/93811fa069cd176485758aa935f97919.js.下载" defer="" async=""></script>
-<script src="ToDesigner/Sortable.min.js.下载"></script>
-<script src="ToDesigner/semantic.min.js.下载"></script>
-<script src="ToDesigner/xss.min.js.下载"></script>
-<div style="top: 0px; left: 0px; visibility: hidden; position: absolute; width: 1px; height: 1px;">
-    <iframe style="height:0px; width:0px;" src="ToDesigner/delegate.jsp"></iframe>
-</div>
-<script src="ToDesigner/app-fe7f8bdcdd789e5021a6.js.下载"></script>
 <div class="layer-6" id="YSF-BTN-HOLDER">
     <div id="YSF-CUSTOM-ENTRY-6"><img src="ToDesigner/6.png"></div>
     <span id="YSF-BTN-CIRCLE"></span>
@@ -719,8 +638,6 @@
         <span id="YSF-BTN-ARROW"></span><span id="YSF-BTN-CLOSE"></span></div>
 </div>
 <div id="YSF-PANEL-INFO" class="ysf-chat-layer" data-switch="0">
-    <iframe src="ToDesigner/iframe.jsp" id="YSF-IFRAME-LAYER"
-            style="width: 100%; height: 100%;"></iframe>
 </div>
 </body>
 </html>

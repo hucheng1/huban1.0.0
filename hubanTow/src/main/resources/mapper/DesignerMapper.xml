@@ -8,10 +8,62 @@
     <result column="fd_qq" property="fdQq" jdbcType="VARCHAR" />
     <result column="fd_intro" property="fdIntro" jdbcType="VARCHAR" />
     <result column="fd_address" property="fdAddress" jdbcType="VARCHAR" />
+    <result column="fd_imges" property="fdimges" jdbcType="VARCHAR" />
+    <collection property="ser" ofType="com.entity.Services" column="fd_id" javaType="java.util.List">
+      <id column="fse_id" property="fseId" jdbcType="INTEGER" />
+      <result column="fse_name" property="fseName" jdbcType="VARCHAR" />
+      <result column="fse_img" property="fseImg" jdbcType="VARCHAR" />
+      <result column="fse_ftime" property="fseFtime" jdbcType="VARCHAR" />
+      <result column="fse_urgent" property="fseUrgent" jdbcType="VARCHAR" />
+      <result column="fse_price" property="fsePrice" jdbcType="INTEGER" />
+      <result column="fse_urgent_price" property="fseUrgentPrice" jdbcType="INTEGER" />
+      <result column="fse_priceunit" property="fsePriceunit" jdbcType="VARCHAR" />
+      <result column="fse_count" property="fseCount" jdbcType="INTEGER" />
+      <result column="fse_star" property="fseStar" jdbcType="INTEGER" />
+      <result column="fd_id" property="fdId" jdbcType="INTEGER" />
+      <result column="fs_id" property="fsId" jdbcType="INTEGER" />
+
+    </collection>
+    <collection property="good" ofType="com.entity.Good" column="fd_id" javaType="java.util.List" >
+      <id column="fg_id" property="fgId" jdbcType="INTEGER" />
+      <result column="fg_name" property="fgName" jdbcType="VARCHAR" />
+    </collection>
   </resultMap>
   <sql id="Base_Column_List" >
     fd_id, fd_uid, fd_truename, fd_qq, fd_intro, fd_address
   </sql>
+
+  <select id="toSelectAll" resultMap="BaseResultMap" parameterType="int">
+        SELECT de.* ,u.img AS fd_imges  FROM flower_designer AS de
+    INNER JOIN users AS u ON de.fd_uid=u.uid
+    WHERE de.fd_id=#{fdid}
+  </select>
+  <select id="selectAlld" resultMap="BaseResultMap">
+    SELECT de.* ,u.img AS fd_imges  FROM flower_designer AS de
+    INNER JOIN users AS u ON de.fd_uid=u.uid
+    <if test="fgid!=null">
+      INNER JOIN  floewr_designer_good AS fdg ON fdg.fd_id=de.fd_id
+    </if>
+    <where>
+      <if test="fgid!=null">
+        fdg.fg_id=#{fgid}
+      </if>
+    </where>
+    ORDER BY de.fd_id
+    limit #{pageIndex},#{pageSize}
+  </select>
+  <select id="pageCount"  resultType="java.lang.Integer">
+    SELECT COUNT(1) FROM flower_designer AS de
+    INNER JOIN users AS u ON de.fd_uid=u.uid
+    INNER JOIN  floewr_designer_good AS fdg ON fdg.fd_id=de.fd_id
+    INNER JOIN flower_good AS fg ON fg.fg_id=fdg.fg_id
+    INNER JOIN flower_service AS fs ON fs.fd_id=de.fd_id
+    <where>
+    <if test="fgid!=null">
+      fdg.fg_id=#{fgid}
+    </if>
+    </where>
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

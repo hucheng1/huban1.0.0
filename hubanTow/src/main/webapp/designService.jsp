@@ -83,7 +83,7 @@
         filter: alpha(opacity=100);
         opacity: 1;
         background: url(https://qiyukf.com/sdk//res/img/sdk/bg_floatMsg2x.png) no-repeat;
-        background: url(https://qiyukf.com/sdk//res/img/sdk/bg_floatMsg.png);
+        background: url(https://qiyukf.com/sdk//res/img/sdk/bg_floatMsg.png) 9;
         background-size: 278px 80px;
         z-index: 1;
     }
@@ -384,11 +384,6 @@
         left: 0;
         right: 0;
     }
-
-
-        #page li{
-            display: inline-block
-        }
     </style>
     <link rel="shortcut icon" href="https://muse.huaban.com/assets/57817251462a6d174e80efc8d975d352.ico"
           data-react-helmet="true">
@@ -401,7 +396,7 @@
             <nav class="ui container ui menu" data-reactid="5"><a class="brand item" href=""
                                                                   data-reactid="6"><i class="graph logo text"
                                                                                       data-reactid="7"></i></a><a
-                    class="item" href="designMain.jsp" data-reactid="8">首页</a>
+                    class="item" href="designMain.html" data-reactid="8">首页</a>
                 <div class="ui service dropdown item" data-reactid="9"><a class="item active"
                                                                           href=""
                                                                           data-reactid="10">设计服务</a><i
@@ -434,7 +429,7 @@
                                                              data-reactid="25">其它</a></div>
                     </div>
                 </div>
-                <a class="item" href="designer.jsp" data-reactid="26">设计师</a><a class="item"
+                <a class="item" href="designer.html" data-reactid="26">设计师</a><a class="item"
                                                                                  href=""
                                                                                  data-reactid="27">工作台</a>
                 <div class="right menu" data-reactid="28">
@@ -471,7 +466,8 @@
                 <div class="ui segment search facets">
                     <div class="ui middle filled grid">
                         <div class="column label">分类:</div>
-                        <nav class="middle column list" id="appt"><a class="item active" href="designService.jsp">全部</a>
+                        <nav class="middle column list" id="appt">
+                            <a class="item active" href="designService.jsp">全部</a>
 
                            </nav>
                     </div>
@@ -505,23 +501,9 @@
                 </div>
             </div>
             <div class="ui basic center aligned segment">
-                <nav class="ui pagination menu" id="apage">
-                 <!--   <a class="item" href="/services?limit=20&amp;page=1">
-                        <i class="icon angle double left"></i></a><a class="item" href="/services?limit=20&amp;page=1"><i
-                        class="icon angle left"></i></a><a class="item" href="/services?limit=20&amp;page=1">1</a><a
-                        class="item active" href="/services?limit=20&amp;page=2">2</a><a class="item"
-                                                                                         href="/services?limit=20&amp;page=3">3</a><a
-                        class="item" href="/services?limit=20&amp;page=4">4</a><a class="item"
-                                                                                  href="/services?limit=20&amp;page=5">5</a><a
-                        class="item" href="/services?limit=20&amp;page=6">6</a><a class="item"
-                                                                                  href="/services?limit=20&amp;page=7">7</a><a
-                        class="item" href="/services?limit=20&amp;page=8">8</a><a class="item"
-                                                                                  href="/services?limit=20&amp;page=9">9</a><span
-                        class="item">...</span><a class="item" href="/services?limit=20&amp;page=99">99</a><a
-                        class="item" href="/services?limit=20&amp;page=100">100</a>
-                    <a class="item" href="/services?limit=20&amp;page=3">
-                        <i class="icon angle right"></i></a><a class="item" href="/services?limit=20&amp;page=100">
-                    <i class="icon angle double right"></i></a>--></nav>
+                <nav class="ui pagination menu"id="apage" >
+
+                </nav>
             </div>
         </div>
         <footer class="site footer" data-reactid="216">
@@ -641,46 +623,58 @@
     window.load=CLoad();
     window.load=GLoad();
 
-    function GLoad(pageNo){
+    function GLoad(){
 
        var c= getRequest();
        var fcid=c.fcId;
        var fsid=c.fsId;
-        var pageNo=2;
+       var pageNo=c.pageNo;
+
        $.post('/selectCGao',{"fcid":fcid,"fsid":fsid,"pageNo":pageNo},function (data) {
             if(data==null){
                return;
             }
 
-            for(var i=0;i<data.length;i++){
-                $("#appe").append(' <div class="ui service link card">\n' +
-                    '                        <div class="actions">\n' +
-                    '                            <button class="ui icon button fav"></button>\n' +
-                    '                        </div>\n' +
-                    '                        <a href=""><img class=""\n' +
-                    '                                        src="./designService/'+data[i].fseImg+'"></a>\n' +
-                    '                        <div class="content"><label class="title">'+data[i].fseName+'</label></div>\n' +
-                    '                        <footer class="extra content"><label class="price">价格面议</label>\n' +
-                    '                            <p class="tip">提供可选拓展</p></footer>\n' +
-                    '                    </div>')
-            }
-            for(var k=0;k<data.length;k++){//循环页数<a>标签
-                $("#apage").append('<a class="item" href="/selectCGao?pageNo=1">\n' +
-                    '                        <i class="icon angle double left"></i></a><a class="item" href="/selectCGao?pageNo=1"><i\n' +
-                    '                        class="icon angle left"></i></a><a class="item" href="/selectCGao?page='+data[k]+'">data[k]</a>   ' +
-                    '                        <i class="icon angle right"></i></a><a class="item" href="/selectCGaopage=pageNo">\n' +
-                    '                    <i class="icon angle double right"></i></a>')
-            }
-            for(var v=0;v<data.length;v++){//调PageService里的值
+        for(var v=0;v<data.ser.length;v++){
+                var price=data.ser[v].fsePrice;
+                if(price==null||price==""){
+                    price="价格面议";
+                }else{
+                    price=price+"/";
+                }
 
+                var unit=data.ser[v].fsePriceunit;
+                if(unit==""||unit==null){
+                    unit="";
+                }
+
+            $("#appe").append(' <div class="ui service link card">\n' +
+                '                        <div class="actions">\n' +
+                '                            <button class="ui icon button fav"></button>\n' +
+                '                        </div>\n' +
+                '                        <a href="YuanC.html?fseid='+data.ser[v].fseId+'"><img class=""\n' +
+                '                                        src="./designService/'+data.ser[v].fseImg+'"></a>\n' +
+                '                        <div class="content"><label class="title">'+data.ser[v].fseName+'</label></div>\n' +
+                '                        <footer class="extra content"><label class="price">'+price+unit+'</label>\n' +
+                '                            <p class="tip">提供可选拓展</p></footer>\n' +
+                '                    </div>')
+        }
+
+            $("#apage").append('<a class="item" href="/designService.jsp?fcid='+fcid+'&fsid='+fsid+'&pageNo=1">\n'+
+                '  <i class="icon angle double left"></i>');
+
+            for(var k=1;k<=data.page.totalPage;k++){//循环页数<a>标签
+                    $("#apage").append(' <a class="item" href="/designService.jsp?fcid='+fcid+'&fsid='+fsid+'&pageNo='+k+'">'+k+'</a>   ');
             }
-
-
+           var p=0;
+           for(var k=1;k<=data.page.totalPage;k++) {
+               var p=k++;
+           }
+            $("#apage").append(' <a class="item" href="/designService.jsp?fcid=' + fcid + '&fsid=' + fsid + '&pageNo='+ p + '"><i class="icon angle right"></i></a>' +
+                ' <a class="item" href="/designService.jsp?fcid=' + fcid + '&fsid=' + fsid + '&pageNo='+ p + '"\n' +
+                '               <i class="icon angle double right"></i></a>')
         },"json");
     }
-
-
-
 
 
     function CLoad(){

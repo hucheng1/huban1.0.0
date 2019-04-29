@@ -8,6 +8,17 @@
   <sql id="Base_Column_List" >
     fg_id, fg_name
   </sql>
+
+  <select id="selectByDesid"  resultMap="BaseResultMap"  parameterType="int">
+    SELECT fg.* FROM flower_good AS fg
+    INNER JOIN floewr_designer_good AS fdg ON fdg.fg_id=fg.fg_id
+    WHERE  fdg.fd_id=#{fdid}
+  </select>
+  <select id="selectGood" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from flower_good
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
