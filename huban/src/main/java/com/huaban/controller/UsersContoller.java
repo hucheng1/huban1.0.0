@@ -22,7 +22,7 @@ public class UsersContoller {
         this.service = service;
     }
 
-    @RequestMapping("findUsers")
+    @RequestMapping("/findUsers")
     @ResponseBody
     public String findUsers(Integer uid){
         String js = "";

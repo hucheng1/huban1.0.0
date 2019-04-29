@@ -18,16 +18,6 @@ public class Huab {
 
     private List<Gather> gathers;
 
-    private List<Users> usersList;
-
-    public List<Users> getUsersList() {
-        return usersList;
-    }
-
-    public void setUsersList(List<Users> usersList) {
-        this.usersList = usersList;
-    }
-
     public List<Gather> getGathers() {
         return gathers;
     }
@@ -74,18 +64,5 @@ public class Huab {
 
     public void setUid(Integer uid) {
         this.uid = uid;
-    }
-
-    @Override
-    public String toString() {
-        return "Huab{" +
-                "hid=" + hid +
-                ", hname='" + hname + '\'' +
-                ", context='" + context + '\'' +
-                ", cid=" + cid +
-                ", uid=" + uid +
-                ", gathers=" + gathers +
-                ", usersList=" + usersList +
-                '}';
     }
 }

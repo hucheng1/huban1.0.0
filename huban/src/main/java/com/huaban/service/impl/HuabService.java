@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 /**
  * 画板服务类
  */
@@ -31,26 +29,17 @@ public class HuabService implements IHuabService{
         this.hdao = hdao;
     }
 
-    public IHuabDao getDao() {
-        return hdao;
+    public IGatherDao getGdao() {
+        return gdao;
     }
-
     @Autowired
-    public void setDao(IHuabDao hdao) {
-        this.hdao = hdao;
+    public void setGdao(IGatherDao gdao) {
+        this.gdao = gdao;
     }
 
     public Huab selectByHid(Integer hid) {
         Huab huab =  hdao.selectByHid(hid);
         huab.setGathers(gdao.selectByHid(hid));
         return huab;
-    }
-
-    /**
-     * 查询画板详情信息
-     */
-    @Override
-    public List<Huab> selectHuan(int id) {
-        return hdao.selectHuan(id);
     }
 }

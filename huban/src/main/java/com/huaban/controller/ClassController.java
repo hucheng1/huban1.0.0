@@ -12,11 +12,14 @@ import java.util.List;
 @Controller
 public class ClassController {
 
-    @Autowired
+
     private IClassService service;
+
     public IClassService getService() {
         return service;
     }
+
+    @Autowired
     public void setService(IClassService service) {
         this.service = service;
     }

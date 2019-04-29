@@ -1,6 +1,5 @@
 package com.huaban.service.impl;
 
-
 import com.huaban.dao.IGatherDao;
 import com.huaban.entity.Gather;
 import com.huaban.service.IGatherService;
@@ -9,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
-
+import java.util.List;
 
 /**
  * 采集服务类
@@ -37,11 +35,5 @@ public class GatherService implements IGatherService{
 
     public List<Gather> selectByHid(Integer hid) {
         return dao.selectByHid(hid);
-    }
-
-
-    //查询为你推荐的图片
-    public List<Gather> selectimgAll(Map map) {
-        return dao.selectimgAll(map);
     }
 }

@@ -29,14 +29,14 @@ public class Gather {
      * 描述
      */
     private String details;
-    /**
-     * 用户类
-     */
-    private Users users;
-    /**
-     * 转采用户类
-     */
-    private Users transpondUser;
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
 
     @DateTimeFormat( pattern = "yyyy-MM-dd")
     private Date date;
@@ -87,20 +87,5 @@ public class Gather {
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    @Override
-    public String toString() {
-        return "Gather{" +
-                "gid=" + gid +
-                ", img='" + img + '\'' +
-                ", hid=" + hid +
-                ", lid=" + lid +
-                ", transpondUid=" + transpondUid +
-                ", details='" + details + '\'' +
-                ", users=" + users +
-                ", transpondUser=" + transpondUser +
-                ", date=" + date +
-                '}';
     }
 }

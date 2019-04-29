@@ -21,10 +21,6 @@
     select * from gather
     where gid=${gid}
   </select>
-  <!--查询图片-->
-  <select id="selectimgAll" resultMap="BaseResultMap" parameterType="java.util.Map">
-     SELECT * FROM `gather` LIMIT #{currentPage},#{pageSize}
-  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -40,7 +36,7 @@
       hid, lid, transpond_uid, 
       date)
     values (#{gid,jdbcType=INTEGER}, #{gname,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
-      #{hid,jdbcType=INTEGER}, #{lid,jdbcType=INTEGER}, #{transpondUid,jdbcType=INTEGER}, 
+      #{hid,jdbcType=INTEGER}, #{lid,jdbcType=INTEGER}, #{transpondUid,jdbcType=INTEGER},
       #{date,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.huaban.entity.Gather" >
