@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="hubanTow:war">
+    <output-path>$PROJECT_DIR$/hubanTow/target</output-path>
+    <root id="archive" name="hubanTow.war">
+      <element id="artifact" artifact-name="hubanTow:war exploded" />
+    </root>
+  </artifact>
+</component>
