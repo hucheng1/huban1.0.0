@@ -24,6 +24,7 @@ public class HuabCotroller {
     @RequestMapping("/findHuab")
     @ResponseBody
     public String findHuab(Integer hid){
+        System.out.println("进入方法");
         String js = "";
         Huab huab = service.selectByHid(hid);
         if(huab == null) return js;

@@ -24,7 +24,7 @@
   </select>
   <select id="selectByUid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select uid,uname,img from users
-    where uid=${uid}
+    where uid=#{uid}
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 

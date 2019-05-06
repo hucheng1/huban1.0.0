@@ -11,9 +11,15 @@
   <sql id="Base_Column_List" >
     hid, hname, context, cid, uid
   </sql>
-  <select id="selectByHid"  resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  <select id="selectByHid"  resultMap="BaseResultMap">
     SELECT * FROM huab
-    WHERE hid = ${hid}
+    WHERE hid = #{hid}
+  </select>
+  <!--查询画板关注详情信息-->
+  <select id="selectHuan" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+      SELECT s.*,u.`img` ,u.`uname` FROM `huab` AS s  INNER JOIN `users` AS u
+      ON s.`uid`=u.`uid`
+      WHERE s.`hid`=#{hid}
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
