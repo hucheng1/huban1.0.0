@@ -1,5 +1,7 @@
 package com.huaban.entity;
 
+import java.util.List;
+
 /**
  * 关注类
  */
@@ -9,6 +11,8 @@ public class Focus {
     private Integer uid;
 
     private Integer hid;
+
+    private List<Users> usersList;
 
     public Integer getFid() {
         return fid;
@@ -32,5 +36,13 @@ public class Focus {
 
     public void setHid(Integer hid) {
         this.hid = hid;
+    }
+
+    public List<Users> getUsersList() {
+        return usersList;
+    }
+
+    public void setUsersList(List<Users> usersList) {
+        this.usersList = usersList;
     }
 }

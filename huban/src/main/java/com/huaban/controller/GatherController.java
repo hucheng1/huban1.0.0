@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.*;
+
 @Controller
 public class GatherController {
 
@@ -32,5 +34,21 @@ public class GatherController {
         js = JSON.toJSONString(gather);
         System.out.println("gather = "+js);
         return js;
+    }
+    //查询所有图片
+    @RequestMapping(value="/img",produces={"application/json;charset=UTF-8"})
+    @ResponseBody
+    public String findimgAll(Integer pageNo){
+        System.out.println("进入查询为你推荐-----------------");
+        int indexSize=8;
+        Map<Object,Integer> map=new HashMap<Object,Integer>();
+        map.put("currentPage",pageNo*indexSize);//当前页
+        map.put("pageSize",indexSize);//数据数量
+        List<Gather> list=service.selectimgAll(map);
+        System.out.println("list:"+list.size());
+        String json= JSON.toJSONString(list);
+        System.out.println("JSON："+json);
+        return json;
+
     }
 }
