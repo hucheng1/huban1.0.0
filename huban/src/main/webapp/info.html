@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/info.css">
+		<!--<link rel="stylesheet" href="css/shepherd-theme-arrows.css">-->
+		<!-- end -->
+		<!-- 阿里图形验码 -->
+		<link type="text/css" href="data/nc.css" rel="stylesheet">
+		<script type="application/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="application/javascript" src="js/mootools.js"></script>
+		<script type="application/javascript" src="js/vue.js"></script>
+	</head>
+
+<body>
+<div id="pin_view_layer">
+	<div class="pin-view">
+		<div class="pin-view-wrapper">
+			<div class="main-part">
+				<div class="image-piece piece">
+					<div class="tool-bar">
+						<a onclick="" href="#" class="repin-btn btn rbtn"><span class="text"> 采集</span></a>
+						<a href="#" onclick="return false;" class="like-btn  btn-with-icon btn"><i class="heart"></i></a>
+					</div>
+					<div class="main-image">
+						<div id="baidu_image_holder" class="image-holder"><img :src="getImg" alt="#插画#" width="658" height="100%"></div>
+					</div>
+					<div class="tool-bar-bottom">
+						<a onclick="" href="#" class="repin-btn btn-with-icon btn"><i class="class"></i><span class="text"> 采集 <span class="num"></span></span>
+						</a>
+						<a href="#" onclick="return false;" class="like-btn btn-with-icon btn"><i class="class"></i><span class="text"> 喜欢 <span class="num"></span></span>
+						</a>
+						<a href="#" onclick="return false;" class="comment-btn btn-with-icon btn"><i class="class"></i><span class="text"> 评论 <span class="num"></span></span>
+						</a>
+						<!--btn.download-btn(href='#{imgURL(pin.file)}', target='_blank', download) #{((pin.file.type || '').substring(6) || 'jpeg').toUpperCase()}-->
+						<!--    i.new-->
+						<!--    i-->
+						<div class="right-part">
+							<a title="举报这张采集" href="#" onclick="return false;" class="report-btn btn-with-icon btn"><i class="class"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="info-piece piece">
+					<div v-if="isTranspondUser" class="info">
+						<a href="" title="huab.user.uname" rel="nofollow" class="img x"><img :src="getUserImg(huab.user.img)" class="avt"></a>
+						<div class="main">
+							<a href="" rel="nofollow">{{ huab.user.uname}}</a><span class="space">从</span>
+							<a href="" rel="nofollow">{{transpondUser.uname}}</a>
+						</div>
+						<div class="sub">转采于<span class="ts-words space">{{ getDate(gather.date) }}</span></div>
+					</div>
+					<div v-else class="info">
+						<a href="" title="huab.user.uname" rel="nofollow" class="img x"><img :src="getUserImg(huab.user.img)" class="avt"></a>
+						<div class="main">
+							<a href="" rel="nofollow">{{ huab.user.uname}}</a>
+						</div>
+						<div class="sub">采集于<span class="ts-words space">{{ getDate(gather.date) }}</span></div>
+					</div>
+					<div class="description">{{gather.details}}</div>
+					<div  class="more-comments" @click="loadComment()">加载较早的评论</div>
+					<div class="comments">
+						<div v-for="comment in comments" class="comment">
+							<a title="comment.users.uname" class="img x" href="/yingmu/">
+								<img class="avatar" :src="getUserImg(comment.users.img)" >
+							</a>
+							<div class="meta">
+								<a class="author" href="">{{comment.users.uname}}</a>&nbsp;-&nbsp;<span class="ts-words">{{getDate(comment.date)}}</span>说：
+							</div><div class="text">{{comment.context}}</div>
+							<div class="action-buttons"><a title="回复" class="reply-button" ></a>
+								<a title="举报" class="report-button"></a>
+							</div>
+						</div>
+					</div>
+					<div id="pin_view_add_comment" data-id="1115384677" class="clearfix">
+						<a href="//" title="" class="img x">
+							<img :src="getUserImg(users.img)"  class="avatar">
+						</a>
+						<textarea name="caption" placeholder="添加评论或把采集@给好友" class="clear-input"></textarea>
+						<a href="javascript:void(0)" @click="addComments" class="post btn btn14"style="display: block;"><span class="text"> 添加评论</span></a>
+					</div>
+					<div class="likes clearfix">
+						<h4>1喜欢</h4>
+						<a href="/n6hmgsuf0h/" title="不二直说" class="img x"><img src="//img.hb.aicdn.com/fee4bfb0b4c0d28cb63e9050959675b219622de61441-H2Sud8_sq75sf"  width="46" height="46"></a>
+					</div>
+				</div>
+				<div class="baidu-ads" style="opacity: 0; display: none;">
+					<div class="close-baidu-ads"><img src="img/close_baidu_ads.svg"></div>
+					<div id="_tnh60cwc7p"><iframe id="iframeu3519936_6" name="iframeu3519936_6" src="img/cccm.html" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" style="border:0;vertical-align:bottom;margin:0;width:640px;height:60px" allowtransparency="true" width="640" height="60" frameborder="0" align="center,center"></iframe></div>
+				</div>
+				<div class="repin-info-piece clearfix two">
+					<div class="board unit">
+						<a href="http://huaban.com/boards/36073870/" rel="nofollow" class="pins x"><img v-for="(gather,index) in huab.gathers" v-if="index<4" :src="'http://localhost/huaban/images/'+gather.img" width="24" height="24"></a>
+						<div class="info"><span>采集到画板</span>
+							<a href="http://huaban.com/boards/36073870/" rel="nofollow" class="x">{{huab.hname}}</a>
+						</div>
+						<a data-id="36073870" href="#" onclick="return false;" class="follow-btn btn"><span class="text"> 关注</span></a>
+					</div>
+					<div v-if="isTranspondUser" class="repins-from unit">
+						<a href="http://huaban.com/houzidada/" :title="transpondUser.uname" class="img x"><img :src="getUserImg(transpondUser.img)" width="50" height="50"></a>
+						<div class="info"><span>采集自用户</span>
+							<a href="http://huaban.com/houzidada/" class="x">{{transpondUser.uname}}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="side-part" style="position: absolute; top: 0px; right: 0px;">
+				<div class="board-piece piece">
+					<div class="board-info">
+						<a href="http://huaban.com/weixin842070539/" :title="huab.hname" class="img x"><img :src="getUserImg(huab.user.img)" height="38" width="38" class="avt"></a>
+						<a href="http://huaban.com/boards/36073870/" class="name x">{{ huab.hname}}</a>
+						<div class="sub">{{ huab.user.uname}}</div>
+					</div>
+					<div class="board-pins cst-scrollbar">
+						<div id="board_pins_waterfall">
+							<a v-for="gather of huab.gathers"  :href="getGatherHref(gather.gid)" class="cell x layer-view" style="position: absolute; left: 0px; top: 0px;" :class="{selected:isSelected(gather.gid)}" >
+								<img :src="'http://localhost/huaban/images/'+gather.img" onload='waterFall("board_pins_waterfall","cell");' width="80" height="100%">
+								<div class="cover"></div>
+								<div class="stop"></div>
+							</a>
+						</div>
+						<div class="loading"><img src="img/loading.gif"><span>正在加载...</span></div>
+					</div>
+					<a data-id="36073870" href="#" onclick="return false;" class="follow-btn btn"><span class="text"> 关注画板</span></a>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="pin-view-arrows">
+		<a style="visibility: hidden; position: fixed; right: 17px;" class="next x layer-view"></a>
+		<a style="visibility: hidden; position: fixed; left: 0px;" class="prev x layer-view"></a>
+	</div>
+</div>
+<!--获取url的参数-->
+<script>
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r != null) return decodeURI(r[2]);
+        return null;
+    }
+</script>
+<script >
+    //加载采集对象 画板对象
+    window.load = LoadGather();
+    //加载Vue对象
+    var gatherinfo = new Vue({
+        el:"#pin_view_layer",
+//                    el:".main-image",
+        data:{
+            comments:[],
+            transpondUser:{
+                uid:0,
+                uname:"",
+                img:"",
+            },
+            gather:{
+                gid:0,
+                img:"",
+                transpondUid:0,
+                hid:0,
+                date:"",
+                details:"",
+            },
+            huab:{
+                hid:0,
+                hname:"",
+                uid:0,
+                uname:"",
+                gathers:[],
+                user:{
+                    uid:0,
+                    uname:"",
+                    img:"",
+                },
+            },
+            users:{
+                uid:1,
+                uname:"小小花",
+                img:null,
+            }
+        },computed:{
+            //给img完整路径
+            getImg:function(){
+                return 'http://localhost/huaban/images/'+this.gather.img;
+            },
+            isTranspondUser:function () {
+                return this.transpondUser.uid!=0&&this.transpondUser.uid!=null?true:false;
+            }
+        },methods:{
+            //判断是否是当前采集图
+            isSelected : function (gid)  {
+                return gid==this.gather.gid;
+            },
+            //获取采集路径
+            getGatherHref:function (gid) {
+                return "info.html?gid="+gid;
+            },
+            //获取用户头像路径
+            getUserImg:function (img) {
+                return img==null?"img/654953460733026a7ef6e101404055627ad51784a95c-B6OFs4_sq75sf.png":"http://localhost/huaban/images/"+img;
+            },
+            //获取时间格式
+            getDate:function (value) {
+                var date = new Date(value);
+                var y = date.getFullYear();
+                var MM = date.getMonth() + 1;
+                MM = MM < 10 ? ('0' + MM) : MM;
+                var d = date.getDate();
+                d = d < 10 ? ('0' + d) : d;
+                var h = date.getHours();
+                h = h < 10 ? ('0' + h) : h;
+                var m = date.getMinutes();
+                m = m < 10 ? ('0' + m) : m;
+                var s = date.getSeconds();
+                s = s < 10 ? ('0' + s) : s;
+                return y + '-' + MM + '-' + d + ' ' + h + ':' + m + ':' + s;
+            },
+            //添加评论
+            addComments:function(){
+//						    if(this.users.uid==0||this.users.uid==null)return;
+                var context = $(".clear-input");//添加内容
+                if(context.val().trim()=="")return;
+                var comment = {
+                    gid:gatherinfo.gather.gid,
+                    uid:gatherinfo.users.uid,
+                    context:context.val(),
+                    date:new Date(),
+                };
+
+                $.post("/addComment",comment,function(data){
+                    alert(data);
+                    if(data==true){
+                        var comments = {
+                            gid:gatherinfo.gid,
+                            uid:gatherinfo.users.uid,
+                            context:context.val(),
+                            date:new Date(),
+                            users:gatherinfo.users
+                        };
+                        gatherinfo.comments.push(comments);
+                        context.val("");//清空内容
+                    }
+                },"json");
+            },
+            loadComment:function(){
+                findComments(this.gather.gid);
+            }
+        }
+    });
+
+    function findHuab(hid){
+        $.ajax({
+            type:"post",
+            data:{"hid":hid},
+            dataType:"json",
+            url:"/findHuab",
+            async:false,
+            success:function(data){
+                if(data==null) return;
+                gatherinfo.huab = data;
+                //加载用户对象
+                gatherinfo.huab.user = findUsers(gatherinfo.huab.uid);
+            }
+        });
+    }
+    //加载采集对象方法
+    function LoadGather(){
+        var gid = GetQueryString("gid");
+        $.ajax({
+            type:"post",
+            data:{"gid":gid},
+            dataType:"json",
+            url:"/gatherFind",
+            success:function(data){
+                if(data==null) return;
+//				    alert(JSON.stringify(data));
+                //赋值gatherinfo对象的数据
+                gatherinfo.gather = data;
+                //加载转采用户对象
+                if(gatherinfo.gather.transpondUid != 0&&gatherinfo.gather.transpondUid != null){
+                    gatherinfo.transpondUser = findUsers(gatherinfo.gather.transpondUid);
+                }
+                //加载画板对象
+                findHuab(data.hid);
+//                    alert(gather)
+                findComments(gatherinfo.gather.gid);
+            }
+        });
+    };
+    function findUsers(uid){
+        var users = null;
+        $.ajax({
+            type:"post",
+            data:{"uid":uid},
+            dataType:"json",
+            url:"/findUsers",
+            async:false,
+            success:function(data){
+                if(data==null) return;
+                users = data;
+//                    alert(users)
+            }
+        });
+        return users;
+    };
+    var pageNo = 1;
+    function findComments(gid) {
+        $.ajax({
+            type: "post",
+            data: {"pageNo": pageNo,"gid":gid},
+            dataType: "json",
+            url: "/findComments",
+            success: function (data) {
+                pageNo++;
+                if(data==null)return;
+
+                //倒叙添加集合
+                var items1 = gatherinfo.comments;
+                var items3 = data;
+                var items2 = new Array(items1.length+items3.length);
+                for(var i=0,j=items3.length-1;i<items3.length;i++,j--){
+                    items2[i]=items3[j];
+                }
+                for(var i = 0 ; i < items1.length ; i++){
+                    items2[items3.length+i]=items1[i];
+                }
+                gatherinfo.comments=items2;
+            }
+        });
+    }
+    // 瀑布流函数
+    function waterFall(parent, child) {
+        setImgHeight();
+        // 父盒子居中，取得所有父盒字
+        //先获得父元素及其底下所有的子元素
+        var oParent = document.getElementById(parent);
+        if(oParent==null)return;
+        var allBox = oParent.getElementsByClassName(child);
+        //    获取子盒子高度
+//                var boxWidth = allBox[0].offsetWidth;
+				var boxWidth = $(allBox)[0].offsetWidth;
+                // 求出列数
+				var cols = 3;
+                var xyMargin = 0;
+                //    定义高度数组
+                var arrH = [];
+
+                // 遍历盒子
+                for(var i = 0; i < allBox.length; i++) {
+                    // 求出每个盒子的高度
+                    var boxH = allBox[i].offsetHeight + xyMargin;
+//                    var boxH = $(allBox[i]).find("img").height();
+//                    alert(boxH);
+                    if(i < cols) {
+                        // heightArr.push(boxHeight); //第一行
+                        arrH.push(boxH);
+                        allBox[i].style.position = "absolute";
+                        allBox[i].style.left = i * (boxWidth + xyMargin) + 'px';
+                        allBox[i].style.top = xyMargin + 'px';
+                    } else {
+                        // 取出最矮的盒子高度
+                        var minH = Math.min.apply(null, arrH);
+                        //求出最矮盒子的对应所引
+                        var minIndex = getMinBoxIndex(arrH, minH);
+                        //子盒子定位
+                        allBox[i].style.position = 'absolute';
+                        allBox[i].style.left = minIndex * (boxWidth + xyMargin) + 'px';
+                        allBox[i].style.top = minH + xyMargin + 'px';
+                        arrH[minIndex] += boxH;
+                    }
+                }
+                // 更新父盒子的高度
+                var parentHeight = allBox[allBox.length - 1].offsetTop + allBox[allBox.length - 1].offsetHeight;
+                oParent.style.height = parentHeight;
+            };
+            function setImgHeight() {
+				var $cell = $(".cell");
+				for(var i=0;i < $cell.length ;i++){
+				    if($cell.eq(i).height()>150){
+                        var height = $cell.eq(i).find("img").height();
+                        $cell.eq(i).find("img").attr("height",height);
+                        $cell.eq(i).addClass("long");
+					}
+				}
+            }
+            //获取最小下标函数
+            function getMinBoxIndex(arr, min) {
+                for(var i=0;i<arr.length;i++){
+                    if(arr[i] === min){
+                        return i;
+                    }
+                }
+            }
+	</script>
+	</body>
+</html>

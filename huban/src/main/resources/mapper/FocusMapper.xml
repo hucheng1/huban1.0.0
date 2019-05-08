@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huaban.dao.IFocusDao" >
+  <resultMap id="BaseResultMap" type="com.huaban.entity.Focus" >
+    <id column="fid" property="fid" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="hid" property="hid" jdbcType="INTEGER" />
+    <collection property="usersList" column="uid" javaType="java.util.List" ofType="com.huaban.entity.Users">
+      <result column="uname" property="uname" jdbcType="VARCHAR" />
+      <result column="phone" property="phone" jdbcType="VARCHAR" />
+      <result column="email" property="email" jdbcType="VARCHAR" />
+      <result column="password" property="password" jdbcType="VARCHAR" />
+      <result column="img" property="img" jdbcType="VARCHAR" />
+      <result column="address" property="address" jdbcType="VARCHAR" />
+      <result column="sex" property="sex" jdbcType="INTEGER" />
+      <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+      <result column="profession" property="profession" jdbcType="VARCHAR" />
+      <result column="http" property="http" jdbcType="VARCHAR" />
+      <result column="description" property="description" jdbcType="VARCHAR" />
+    </collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    fid, uid, hid
+  </sql>
+  <!--查询画板关注者头像信息-->
+  <select id="seelcthead_portrait" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    SELECT u.* FROM focus  AS f INNER JOIN `users` AS  u ON u.`uid`=f.`uid`
+    WHERE f.`hid`=#{hid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from focus
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from focus
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.huaban.entity.Focus" >
+    insert into focus (fid, uid, hid
+      )
+    values (#{fid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{hid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huaban.entity.Focus" >
+    insert into focus
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="hid != null" >
+        hid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="hid != null" >
+        #{hid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huaban.entity.Focus" >
+    update focus
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="hid != null" >
+        hid = #{hid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huaban.entity.Focus" >
+    update focus
+    set uid = #{uid,jdbcType=INTEGER},
+      hid = #{hid,jdbcType=INTEGER}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>
