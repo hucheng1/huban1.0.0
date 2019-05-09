@@ -1,6 +1,9 @@
 package com.entity;
 
-public class Service {
+
+import java.util.List;
+
+public class Services {
     private Integer fseId;
 
     private String fseName;
@@ -26,6 +29,16 @@ public class Service {
     private Integer fsId;
 
     private String fseText;
+
+    private Designer des;
+
+    public Designer getDes() {
+        return des;
+    }
+
+    public void setDes(Designer des) {
+        this.des = des;
+    }
 
     public Integer getFseId() {
         return fseId;
@@ -130,4 +143,6 @@ public class Service {
     public void setFseText(String fseText) {
         this.fseText = fseText == null ? null : fseText.trim();
     }
+
+
 }
