@@ -10,4 +10,12 @@ public interface IUsersDao {
     Users selectByUid(@Param("uid")Integer uid);
 
     List<Users> selectAll();
+
+    Users selectlogin(Users u);
+
+    int insertUser(Users users);
+
+    int selectReaquest(String email);
+
+    int updateUser(Users u);
 }

@@ -255,7 +255,7 @@
             type:"post",
             data:{"hid":hid},
             dataType:"json",
-            url:"/findHuab",
+            url:"/huaban/findHuab",
             async:false,
             success:function(data){
                 if(data==null) return;
@@ -272,7 +272,7 @@
             type:"post",
             data:{"gid":gid},
             dataType:"json",
-            url:"/gatherFind",
+            url:"/huaban/gatherFind",
             success:function(data){
                 if(data==null) return;
 //				    alert(JSON.stringify(data));
@@ -295,7 +295,7 @@
             type:"post",
             data:{"uid":uid},
             dataType:"json",
-            url:"/findUsers",
+            url:"/huaban/findUsers",
             async:false,
             success:function(data){
                 if(data==null) return;
@@ -311,7 +311,7 @@
             type: "post",
             data: {"pageNo": pageNo,"gid":gid},
             dataType: "json",
-            url: "/findComments",
+            url: "/huaban/findComments",
             success: function (data) {
                 pageNo++;
                 if(data==null)return;

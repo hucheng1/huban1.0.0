@@ -19,6 +19,12 @@
     uid, uname, phone, email, password, img, address, sex, birthday, profession, http,
     description
   </sql>
+  <select id="selectReaquest" resultType="java.lang.Integer">
+   select count(*) from `users` where `email` = #{email}
+  </select>
+  <select id="selectlogin" resultMap="BaseResultMap">
+    SELECT * from users where email = #{email} and password = #{password}
+  </select>
   <select id="selectAll" resultMap="BaseResultMap" >
     select uid,uname,img FROM  users
   </select>
@@ -48,7 +54,7 @@
       #{profession,jdbcType=VARCHAR}, #{http,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.huaban.entity.Users" >
+  <insert id="insertUser" parameterType="com.huaban.entity.Users" >
     insert into users
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="uid != null" >
@@ -127,7 +133,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.huaban.entity.Users" >
+  <update id="updateUser" parameterType="com.huaban.entity.Users" >
     update users
     <set >
       <if test="uname != null" >

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IService" >
+  <resultMap id="BaseResultMap" type="com.entity.Services" >
+    <id column="fse_id" property="fseId" jdbcType="INTEGER" />
+    <result column="fse_name" property="fseName" jdbcType="VARCHAR" />
+    <result column="fse_img" property="fseImg" jdbcType="VARCHAR" />
+    <result column="fse_ftime" property="fseFtime" jdbcType="VARCHAR" />
+    <result column="fse_urgent" property="fseUrgent" jdbcType="VARCHAR" />
+    <result column="fse_price" property="fsePrice" jdbcType="INTEGER" />
+    <result column="fse_urgent_price" property="fseUrgentPrice" jdbcType="INTEGER" />
+    <result column="fse_priceunit" property="fsePriceunit" jdbcType="VARCHAR" />
+    <result column="fse_count" property="fseCount" jdbcType="INTEGER" />
+    <result column="fse_star" property="fseStar" jdbcType="INTEGER" />
+    <result column="fd_id" property="fdId" jdbcType="INTEGER" />
+    <result column="fs_id" property="fsId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.entity.Services" extends="BaseResultMap" >
+    <result column="fse_text" property="fseText" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    fse_id, fse_name, fse_img, fse_ftime, fse_urgent, fse_price, fse_urgent_price, fse_priceunit, 
+    fse_count, fse_star, fd_id, fs_id
+  </sql>
+  <sql id="Blob_Column_List" >
+    fse_text
+  </sql>
+  <select id="SelectServiceAll" resultMap="BaseResultMap" >
+    SELECT fs.fd_id,fs.fse_name,fs.fse_img,fs.fse_price FROM flower_service AS fs
+  </select>
+  <select id="fesidCount" resultMap="BaseResultMap">
+     SELECT se.*
+    FROM flower_service AS se
+    WHERE fd_id = #{fdid,jdbcType=INTEGER}
+  </select>
+  <select id="ByfesidCount" resultType="java.lang.Integer" >
+    SELECT COUNT(1)
+    FROM flower_service
+    WHERE fd_id =#{fdid,jdbcType=INTEGER}
+  </select>
+  <select id="findTotalPage" resultType="java.lang.Integer" >
+    SELECT COUNT(1) FROM flower_service AS fs
+    INNER JOIN flower_subclassification AS fsu ON fs.fs_id=fsu.fs_id
+    INNER JOIN flower_categorize AS fc ON fsu.fc_id=fc.fc_id
+    <where>
+      <if test="fcid!=null">
+        fc.fc_id=#{fcid}
+      </if>
+      <if test="fsid!=null">
+        and fsu.fs_id=#{fsid}
+      </if>
+    </where>
+  </select>
+  <select id="selectSeAll" resultMap="BaseResultMap">
+     select *  from flower_service
+  </select>
+  <select id="selectText" resultType="java.lang.String" parameterType="int">
+    SELECT fse_text FROM flower_service
+    WHERE fse_id=#{fseid}
+  </select>
+  <select id="selectSeall" resultMap="BaseResultMap" parameterType="int">
+      SELECT  se.* ,fd.* ,users.img AS fd_imges FROM flower_service AS se
+     INNER JOIN flower_designer AS fd ON se.fd_id=fd.fd_id
+     INNER JOIN users AS users ON fd.fd_uid=users.uid
+      WHERE se.fse_id=#{fseid}
+  </select>
+  <select id="ByfdidSelect" resultMap="BaseResultMap" parameterType="int">
+    SELECT se.* FROM flower_service AS se
+    INNER JOIN flower_designer AS fd ON se.fd_id=fd.fd_id
+    WHERE fd.fd_id=#{fdid}
+  </select>
+  <select id="seelctSon" resultMap="BaseResultMap">
+    SELECT se.* FROM flower_service AS se
+    INNER JOIN flower_subclassification AS s ON se.fs_id=s.fs_id
+    INNER JOIN flower_categorize AS c ON s.fc_id=c.fc_id
+    <where>
+      <if test="fcid!=null">
+        c.fc_id=#{fcid}
+      </if>
+      <if test="fsid!=null">
+        and se.fs_id=#{fsid}
+      </if>
+    </where>
+    limit #{pageIndex},#{pageSize}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from flower_service
+    where fse_id = #{fseId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from flower_service
+    where fse_id = #{fseId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.Services" >
+    insert into flower_service (fse_id, fse_name, fse_img, 
+      fse_ftime, fse_urgent, fse_price, 
+      fse_urgent_price, fse_priceunit, fse_count, 
+      fse_star, fd_id, fs_id, 
+      fse_text)
+    values (#{fseId,jdbcType=INTEGER}, #{fseName,jdbcType=VARCHAR}, #{fseImg,jdbcType=VARCHAR}, 
+      #{fseFtime,jdbcType=VARCHAR}, #{fseUrgent,jdbcType=VARCHAR}, #{fsePrice,jdbcType=INTEGER}, 
+      #{fseUrgentPrice,jdbcType=INTEGER}, #{fsePriceunit,jdbcType=VARCHAR}, #{fseCount,jdbcType=INTEGER}, 
+      #{fseStar,jdbcType=INTEGER}, #{fdId,jdbcType=INTEGER}, #{fsId,jdbcType=INTEGER}, 
+      #{fseText,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.Services" >
+    insert into flower_service
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fseId != null" >
+        fse_id,
+      </if>
+      <if test="fseName != null" >
+        fse_name,
+      </if>
+      <if test="fseImg != null" >
+        fse_img,
+      </if>
+      <if test="fseFtime != null" >
+        fse_ftime,
+      </if>
+      <if test="fseUrgent != null" >
+        fse_urgent,
+      </if>
+      <if test="fsePrice != null" >
+        fse_price,
+      </if>
+      <if test="fseUrgentPrice != null" >
+        fse_urgent_price,
+      </if>
+      <if test="fsePriceunit != null" >
+        fse_priceunit,
+      </if>
+      <if test="fseCount != null" >
+        fse_count,
+      </if>
+      <if test="fseStar != null" >
+        fse_star,
+      </if>
+      <if test="fdId != null" >
+        fd_id,
+      </if>
+      <if test="fsId != null" >
+        fs_id,
+      </if>
+      <if test="fseText != null" >
+        fse_text,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fseId != null" >
+        #{fseId,jdbcType=INTEGER},
+      </if>
+      <if test="fseName != null" >
+        #{fseName,jdbcType=VARCHAR},
+      </if>
+      <if test="fseImg != null" >
+        #{fseImg,jdbcType=VARCHAR},
+      </if>
+      <if test="fseFtime != null" >
+        #{fseFtime,jdbcType=VARCHAR},
+      </if>
+      <if test="fseUrgent != null" >
+        #{fseUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="fsePrice != null" >
+        #{fsePrice,jdbcType=INTEGER},
+      </if>
+      <if test="fseUrgentPrice != null" >
+        #{fseUrgentPrice,jdbcType=INTEGER},
+      </if>
+      <if test="fsePriceunit != null" >
+        #{fsePriceunit,jdbcType=VARCHAR},
+      </if>
+      <if test="fseCount != null" >
+        #{fseCount,jdbcType=INTEGER},
+      </if>
+      <if test="fseStar != null" >
+        #{fseStar,jdbcType=INTEGER},
+      </if>
+      <if test="fdId != null" >
+        #{fdId,jdbcType=INTEGER},
+      </if>
+      <if test="fsId != null" >
+        #{fsId,jdbcType=INTEGER},
+      </if>
+      <if test="fseText != null" >
+        #{fseText,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Services" >
+    update flower_service
+    <set >
+      <if test="fseName != null" >
+        fse_name = #{fseName,jdbcType=VARCHAR},
+      </if>
+      <if test="fseImg != null" >
+        fse_img = #{fseImg,jdbcType=VARCHAR},
+      </if>
+      <if test="fseFtime != null" >
+        fse_ftime = #{fseFtime,jdbcType=VARCHAR},
+      </if>
+      <if test="fseUrgent != null" >
+        fse_urgent = #{fseUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="fsePrice != null" >
+        fse_price = #{fsePrice,jdbcType=INTEGER},
+      </if>
+      <if test="fseUrgentPrice != null" >
+        fse_urgent_price = #{fseUrgentPrice,jdbcType=INTEGER},
+      </if>
+      <if test="fsePriceunit != null" >
+        fse_priceunit = #{fsePriceunit,jdbcType=VARCHAR},
+      </if>
+      <if test="fseCount != null" >
+        fse_count = #{fseCount,jdbcType=INTEGER},
+      </if>
+      <if test="fseStar != null" >
+        fse_star = #{fseStar,jdbcType=INTEGER},
+      </if>
+      <if test="fdId != null" >
+        fd_id = #{fdId,jdbcType=INTEGER},
+      </if>
+      <if test="fsId != null" >
+        fs_id = #{fsId,jdbcType=INTEGER},
+      </if>
+      <if test="fseText != null" >
+        fse_text = #{fseText,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where fse_id = #{fseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.entity.Services" >
+    update flower_service
+    set fse_name = #{fseName,jdbcType=VARCHAR},
+      fse_img = #{fseImg,jdbcType=VARCHAR},
+      fse_ftime = #{fseFtime,jdbcType=VARCHAR},
+      fse_urgent = #{fseUrgent,jdbcType=VARCHAR},
+      fse_price = #{fsePrice,jdbcType=INTEGER},
+      fse_urgent_price = #{fseUrgentPrice,jdbcType=INTEGER},
+      fse_priceunit = #{fsePriceunit,jdbcType=VARCHAR},
+      fse_count = #{fseCount,jdbcType=INTEGER},
+      fse_star = #{fseStar,jdbcType=INTEGER},
+      fd_id = #{fdId,jdbcType=INTEGER},
+      fs_id = #{fsId,jdbcType=INTEGER},
+      fse_text = #{fseText,jdbcType=LONGVARCHAR}
+    where fse_id = #{fseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.Services" >
+    update flower_service
+    set fse_name = #{fseName,jdbcType=VARCHAR},
+      fse_img = #{fseImg,jdbcType=VARCHAR},
+      fse_ftime = #{fseFtime,jdbcType=VARCHAR},
+      fse_urgent = #{fseUrgent,jdbcType=VARCHAR},
+      fse_price = #{fsePrice,jdbcType=INTEGER},
+      fse_urgent_price = #{fseUrgentPrice,jdbcType=INTEGER},
+      fse_priceunit = #{fsePriceunit,jdbcType=VARCHAR},
+      fse_count = #{fseCount,jdbcType=INTEGER},
+      fse_star = #{fseStar,jdbcType=INTEGER},
+      fd_id = #{fdId,jdbcType=INTEGER},
+      fs_id = #{fsId,jdbcType=INTEGER}
+    where fse_id = #{fseId,jdbcType=INTEGER}
+  </update>
+</mapper>
