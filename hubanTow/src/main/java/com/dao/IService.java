@@ -1,11 +1,9 @@
 package com.dao;
 
 import com.entity.Categorize;
-import com.entity.Page;
 import com.entity.Services;
 import org.apache.ibatis.annotations.Param;
 
-import javax.naming.directory.SearchResult;
 import java.util.List;
 
 public interface IService {
@@ -30,4 +28,8 @@ public interface IService {
 
 
     List<Services> seelctSon(@Param("fcid") Integer fcid, @Param("fsid") Integer fsid,@Param("pageIndex")int pageIndex,@Param("pageSize")int pageSize);//高級查詢
+
+
+    //查询购买单个具体信息
+    Services selectServiceMpper(Integer fsId);
 }

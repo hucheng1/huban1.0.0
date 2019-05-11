@@ -11,6 +11,7 @@
     <result column="for_money" property="forMoney" jdbcType="INTEGER" />
     <result column="fes_id" property="fesId" jdbcType="INTEGER" />
     <result column="for_urgent" property="forUrgent" jdbcType="INTEGER" />
+      <result column="uid" property="uid" jdbcType="INTEGER"/>
   </resultMap>
   <sql id="Base_Column_List" >
     for_id, for_sid, for_state, for_date, for_payment, for_type, for_money, fes_id, for_urgent
@@ -29,8 +30,10 @@
 
   <!--添加订单-->
   <insert id="insertOrder" parameterType="com.entity.Order">
-        INSERT INTO `flower_order`(`for_id`,`for_sid`,`for_state`,`for_money`)
-        VALUE(#{forId,jdbcType=VARCHAR}, #{forSid,jdbcType=INTEGER},#{forState,jdbcType=INTEGER},#{forMoney,jdbcType=INTEGER})
+      INSERT INTO `flower_order`(`for_id`,`for_sid`,`for_state`,`for_money`,uid)
+      VALUE(#{forId,jdbcType=VARCHAR},
+      #{forSid,jdbcType=INTEGER},#{forState,jdbcType=INTEGER},#{forMoney,jdbcType=INTEGER}
+      ,#{uid,jdbcType=INTEGER})
   </insert>
 
 

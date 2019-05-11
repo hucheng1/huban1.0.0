@@ -9,34 +9,57 @@
     <meta data-react-helmet="true" name="description" content="花瓣美思 - 高质量、高效率、无风险的设计服务">
     <link data-react-helmet="true" rel="shortcut icon" href="https://muse.huaban.com/assets/57817251462a6d174e80efc8d975d352.ico">
     <link href="YuanCHuan/app-fe7f8bdcdd789e5021a6.css" rel="stylesheet">
-    <script type="text/javascript" async="" src="YuanCHuan/analytics.js"></script>
-    <script src="YuanCHuan/hm.js"></script>
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?bd5915e18cc9b1ab964cc940c537c8ca";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <script src="YuanCHuan/js" async=""></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
             dataLayer.push(arguments);
         }
-
         gtag('js', new Date());
         gtag('config', 'UA-123333106-2');
     </script>
-<!--    <link rel="stylesheet" href="css/simpleAlert.css">-->
     <link rel="stylesheet" href="css/yy.css">
     <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/hong.js"></script>
+    <script type="text/javascript">
+        $(function () {
 
-<!--    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-    <script src="js/simpleAlert.js" type="text/javascript"></script>-->
+            //获取数据id
+            function getRequest() {
+                //获取url中"?"符后的字串
+                var url = location.search;
+                var theRequest = new Object();
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    var strs = str.split("&");
+                    for (var i = 0; i < strs.length; i++) {
+                        //theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                        //theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+                        theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")                     [1]);
+                    }
+                }
+                return theRequest;
+            }
+
+
+            $.ajax({
+                url: "shuju",//请求的url
+                data: {"fsId": 3},
+                dataType: "json",//后台数据返回类型
+                success: function (data) {//响应成功执行的方法
+                    //返回数据赋值到页面上
+                    $("#aa").text(data.fseId)//设计画id
+                    $("#money").text(data.fsePrice);//购买单价
+                    $("#names").text(data.designer.fdTruename);//服务方
+                    $("#bb").text(data.fdId);//服务id
+                    $("#price").text(data.fsePrice);//价格 可变动
+                    var div = " <img class=\"sd\" src=/designService/" + data.fseImg + " style=\"width: 140px\">"
+                    $("#sg").append(div);
+                }
+            })  //ajax结尾
+        })
+    </script>
 </head>
 <body>
 <div id="app">
@@ -90,25 +113,26 @@
                 <!-- react-empty: 936 -->
                 <h2 class="ui header">购买设计服务</h2>
                 <header class="ui middle filled service detail grid">
-                    <div class="column"><img class="" src="YuanCHuan/130x130.jpg">
+                    <div class="column" id="sg">
+                        <!--添加图片-->
                     </div>
                     <div class="middle column">
                         <div class="ui auto compact grid">
                             <div class="column">
                                 <!--放置要购买的设计画id-->
-                                <div class="price" style="display: none;" id="aa">5</div>
+                                <div class="price" style="display: none;" id="aa"></div>
                                 <header class="ui header">原创商业插画/漫画</header>
                                <!--获取数据库里面的价格作为数量*固定物价-->
-                                <div class="price" style="display: none;" id="money">1500</div>
+                                <div class="price" style="display: none;" id="money"></div>
                                 <div class="provider">服务方:
-                                    <a class="color brown" href="https://muse.huaban.com/users/859228">VOE小海湾</a>
+                                    <a class="color brown" href="https://muse.huaban.com/users/859228" id="names"></a>
                                     <!--放置服务方id-->
-                                    <div class="price" style="display: none;" id="bb">5</div>
+                                    <div class="price" style="display: none;" id="bb"></div>
                                 </div>
                             </div>
                             <div class="column">
                                 <!--加减后的价格-->
-                  <div class="ui large header color blue" id="price">1500</div>
+                                <div class="ui large header color blue" id="price"></div>
                             </div>
                         </div>
                     </div>
@@ -119,7 +143,6 @@
                                 <button type="button" onclick="jian()">-</button>
                                 <div class="content text center" id="num">1</div>
                                 <button type="button" onclick="jia()">+</button>
-                                <div class="content text right">价格面议</div>
                             </div>
                         </div>
                     </div>
@@ -129,7 +152,8 @@
                         <div class="ui form">
                             <div class="field required"><label>项目标题</label>
                                 <input type="text"name="name"                                                                             placeholder="用最简短的一句话描述你的项目需求，限50字以内" maxlength="50"></div>
-                            <div class="field required"><label>具体需求</label><textarea placeholder="填写                           项目的具体要求" name="desc" id="desc"></textarea></div>
+                            <div class="field required"><label>具体需求</label><textarea placeholder="填写项目的具体要求" name="desc"
+                                                                                     id="desc"></textarea></div>
                             <div class="field">
                                 <div class="actions" id="hong" >
                                     <button class="ui primary button"  onclick="show()">发送订单<i class="ui angle double                                     right icon" ></i></button>
@@ -224,20 +248,8 @@
                                                                            data-reactid="247"></i>
             <!-- react-text: 248 -->联系客服<!-- /react-text --></span></div>
 </div>
-<script>
-</script>
-<script src="js/hong.js"></script>
-<script src="YuanCHuan/jquery_003.js"></script>
-<script src="YuanCHuan/jquery_002.js"></script>
-<script src="YuanCHuan/favico.js"></script>
-<script src="YuanCHuan/Autolinker.js"></script>
-<script src="YuanCHuan/moment-with-locales.js"></script>
-<script src="YuanCHuan/jquery.js"></script>
-<script src="YuanCHuan/93811fa069cd176485758aa935f97919.js" defer="defer" async=""></script>
-<script src="YuanCHuan/Sortable.js"></script>
-<script src="YuanCHuan/semantic.js"></script>
-<script src="YuanCHuan/xss.js"></script>
-<script src="YuanCHuan/app-fe7f8bdcdd789e5021a6.js"></script>
+
+
 <div style="top: 0px; left: 0px; visibility: hidden; position: absolute; width: 1px; height: 1px;">
     <iframe style="height:0px; width:0px;" src="YuanCHuan/delegate.htm"></iframe>
 </div>
@@ -248,9 +260,6 @@
     <div id="YSF-BTN-BUBBLE" style="display: none;">
         <div id="YSF-BTN-CONTENT"></div>
         <span id="YSF-BTN-ARROW"></span><span id="YSF-BTN-CLOSE"></span></div>
-</div>
-<div id="YSF-PANEL-INFO" class="ysf-chat-layer" data-switch="0">
-    <iframe src="YuanCHuan/iframe.htm" id="YSF-IFRAME-LAYER" style="width: 100%; height: 100%;"></iframe>
 </div>
 </body>
 

@@ -36,14 +36,10 @@ function  show() {
         var context=$('#desc').val()//获取项目内容
         var sheId=document.getElementById("aa").innerText;
         var fuId=document.getElementById("bb").innerText;
-        alert("金额："+price+" 数量："+num+" 项目标题："+title+" 内容:"+context+" 购买设计："+sheId+"  服务方id："+fuId);
-/*        $.ajax({
-            url:"zu",
-            data:{"price":price,"num":num,"title":title,"context":context,"sheId":sheId,"fuId":fuId},
-            dataType:"post"
-        })*/
         window.location.href="zu?price="+price+"&num="+num+"&title="+title+"&context="+context+"&sheId="+sheId+"&fuId="+fuId;
     }else{
         alert("您已取消付款操作");
     }
+
+
 }

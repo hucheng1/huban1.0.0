@@ -7,6 +7,11 @@
     <result column="context" property="context" jdbcType="VARCHAR" />
     <result column="cid" property="cid" jdbcType="INTEGER" />
     <result column="uid" property="uid" jdbcType="INTEGER" />
+      <result column="describe" property="describe" jdbcType="VARCHAR"/>
+      <association column="uid" property="user" javaType="com.huaban.entity.Users">
+          <result column="uname" property="uname" jdbcType="VARCHAR"/>
+          <result column="img" property="img" jdbcType="VARCHAR"/>
+      </association>
   </resultMap>
   <sql id="Base_Column_List" >
     hid, hname, context, cid, uid
@@ -17,9 +22,16 @@
   </select>
   <!--查询画板关注详情信息-->
   <select id="selectHuan" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-      SELECT s.*,u.`img` ,u.`uname` FROM `huab` AS s  INNER JOIN `users` AS u
-      ON s.`uid`=u.`uid`
-      WHERE s.`hid`=#{hid}
+      SELECT * FROM `huab` WHERE hid=#{hid,jdbcType=INTEGER}
+  </select>
+    <!--查询所有信息-->
+    <select id="selectAllImpl" resultMap="BaseResultMap">
+     SELECT huab.`hid` FROM huab
+</select>
+    <!--查询画板下的所有信息-->
+    <select id="selectHuabAll" resultMap="BaseResultMap">
+        SELECT h.hname,h.hid,h.describe,u.uname,u.img FROM `huab` AS h
+        INNER JOIN `users` AS u ON u.uid=h.uid
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 

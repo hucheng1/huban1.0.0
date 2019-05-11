@@ -14,10 +14,22 @@
     <result column="fse_star" property="fseStar" jdbcType="INTEGER" />
     <result column="fd_id" property="fdId" jdbcType="INTEGER" />
     <result column="fs_id" property="fsId" jdbcType="INTEGER" />
+      <association property="designer" column="fd_id" javaType="com.entity.Designer">
+          <result column="fd_uid" property="fdUid" jdbcType="INTEGER"/>
+          <result column="fd_truename" property="fdTruename" jdbcType="VARCHAR"/>
+      </association>
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.entity.Services" extends="BaseResultMap" >
     <result column="fse_text" property="fseText" jdbcType="LONGVARCHAR" />
   </resultMap>
+    <!--查询要购买的单个具体信息-->
+    <select id="selectServiceMpper" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+          SELECT fs.`fse_name`,fs.`fse_img`,fs.`fse_price`,fs.`fd_id`,fd.`fd_uid`,fs.`fse_id`
+          ,fd.`fd_truename`
+           FROM `flower_service` AS fs
+           INNER JOIN `flower_designer` AS fd ON fs.`fd_id`=fd.`fd_id`
+           WHERE fs.`fse_id`=#{fseId,jdbcType=INTEGER}
+  </select>
   <sql id="Base_Column_List" >
     fse_id, fse_name, fse_img, fse_ftime, fse_urgent, fse_price, fse_urgent_price, fse_priceunit, 
     fse_count, fse_star, fd_id, fs_id

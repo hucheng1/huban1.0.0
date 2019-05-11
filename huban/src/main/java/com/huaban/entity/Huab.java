@@ -18,6 +18,26 @@ public class Huab {
 
     private List<Gather> gathers;
 
+    private String describe;
+    //添加类
+    private Users user;
+
+    public String getDescribe() {
+        return describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
+
     public List<Gather> getGathers() {
         return gathers;
     }
@@ -64,5 +84,19 @@ public class Huab {
 
     public void setUid(Integer uid) {
         this.uid = uid;
+    }
+
+    @Override
+    public String toString() {
+        return "Huab{" +
+                "hid=" + hid +
+                ", hname='" + hname + '\'' +
+                ", context='" + context + '\'' +
+                ", cid=" + cid +
+                ", uid=" + uid +
+                ", gathers=" + gathers +
+                ", describe='" + describe + '\'' +
+                ", user=" + user +
+                '}';
     }
 }

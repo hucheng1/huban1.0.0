@@ -1,10 +1,9 @@
 package com.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.entity.Good;
 import com.entity.Order;
 import com.service.IAllSerivce;
-import com.service.SeriverImpl.AllServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,7 +18,8 @@ import java.util.Random;
 @Controller
 public class ZhiFuController {
 
-
+    @Autowired
+    private IAllSerivce is;
     @RequestMapping(value = "/zu")
     public String selectGood(Integer num, Integer price, String title, String context, Integer sheId, Integer fuId
     , HttpServletRequest request, HttpServletResponse response) {
@@ -43,9 +43,12 @@ public class ZhiFuController {
 
     @RequestMapping(value = "/ss")
     public String insert(HttpServletRequest request){
-        IAllSerivce is=new AllServiceImpl();
+        System.out.println("进入订单添加结算------------");
         Order order=new Order();
         order.setForMoney(Integer.parseInt(request.getSession().getAttribute("WIDtotal_amount").toString()));
+        //获取登陆用户id
+        Order os = (Order) request.getSession().getAttribute("user");
+        order.setUid(os.getUid());
         order.setForSid(1);
         order.setForState(1);
         order.setForId(request.getSession().getAttribute("WIDout_trade_no").toString());
@@ -56,5 +59,15 @@ public class ZhiFuController {
             return  "redirect:/designMain.html";//成功
         }
         return  "redirect:/designer.html";//失败
+    }
+
+
+    @RequestMapping(value = "/shuju")
+    @ResponseBody
+    public Object insert(Integer fsId) {
+        System.out.println("进入查询具体详情信息-------------------");
+        Object json = JSON.toJSON(is.selectServiceMpper(fsId));
+        System.out.println("数据" + json);
+        return json;
     }
 }

@@ -2,7 +2,6 @@ package com.service.SeriverImpl;
 
 import com.dao.*;
 import com.entity.*;
-import com.entity.Services;
 import com.service.IAllSerivce;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +16,8 @@ public class AllServiceImpl implements IAllSerivce {
 
     private ICategorize cdao;
     private IDesigner ddao;
+
+
     private IDesignerGood dgdao;
     private IExtended edao;
     private IExtendeds esdao;
@@ -121,8 +122,7 @@ public class AllServiceImpl implements IAllSerivce {
         System.out.println(" orderDao = "+orderDao);
         System.out.println(" order = "+order);
         System.out.println(" sudao = "+sudao);
-       // return orderDao.insertOrder(order);
-        return 1;
+        return orderDao.insertOrder(order);
     }
 //高级查询
 
@@ -205,5 +205,13 @@ public class AllServiceImpl implements IAllSerivce {
     public Designer toYuan(Integer fdid) {
         return ddao.toYuan(fdid);
     }
+
+
+    //查询购买的单个信息
+    @Override
+    public Services selectServiceMpper(Integer fsId) {
+        return sdao.selectServiceMpper(fsId);
+    }
+
 }
 

@@ -45,4 +45,7 @@ public interface IAllSerivce {
     //添加订单
     int insertOrder(Order order);
 
+    //查询购买单个具体信息
+    Services selectServiceMpper(Integer fsId);
+
 }

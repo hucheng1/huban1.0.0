@@ -21,6 +21,16 @@ public class Order {
 
     private Integer forUrgent;
 
+    private Integer uid;
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
     public String getForId() {
         return forId;
     }

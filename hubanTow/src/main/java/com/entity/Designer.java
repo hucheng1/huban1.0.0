@@ -104,4 +104,20 @@ public class Designer {
     public void setFdAddress(String fdAddress) {
         this.fdAddress = fdAddress == null ? null : fdAddress.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Designer{" +
+                "fdId=" + fdId +
+                ", fdUid=" + fdUid +
+                ", fdTruename='" + fdTruename + '\'' +
+                ", fdQq='" + fdQq + '\'' +
+                ", fdIntro='" + fdIntro + '\'' +
+                ", fdAddress='" + fdAddress + '\'' +
+                ", fdimges='" + fdimges + '\'' +
+                ", counts=" + counts +
+                ", good=" + good +
+                ", ser=" + ser +
+                '}';
+    }
 }
