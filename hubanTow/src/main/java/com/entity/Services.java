@@ -1,6 +1,7 @@
 package com.entity;
 
-public class Service {
+
+public class Services {
     private Integer fseId;
 
     private String fseName;
@@ -26,6 +27,29 @@ public class Service {
     private Integer fsId;
 
     private String fseText;
+
+    private Designer des;
+
+    //添加的类
+    private Designer designer;
+
+    public Designer getDesigner() {
+        return designer;
+    }
+
+    public void setDesigner(Designer designer) {
+        this.designer = designer;
+    }
+
+
+
+    public Designer getDes() {
+        return des;
+    }
+
+    public void setDes(Designer des) {
+        this.des = des;
+    }
 
     public Integer getFseId() {
         return fseId;
@@ -129,5 +153,27 @@ public class Service {
 
     public void setFseText(String fseText) {
         this.fseText = fseText == null ? null : fseText.trim();
+    }
+
+
+    @Override
+    public String toString() {
+        return "Services{" +
+                "fseId=" + fseId +
+                ", fseName='" + fseName + '\'' +
+                ", fseImg='" + fseImg + '\'' +
+                ", fseFtime='" + fseFtime + '\'' +
+                ", fseUrgent='" + fseUrgent + '\'' +
+                ", fsePrice=" + fsePrice +
+                ", fseUrgentPrice=" + fseUrgentPrice +
+                ", fsePriceunit='" + fsePriceunit + '\'' +
+                ", fseCount=" + fseCount +
+                ", fseStar=" + fseStar +
+                ", fdId=" + fdId +
+                ", fsId=" + fsId +
+                ", fseText='" + fseText + '\'' +
+                ", des=" + des +
+                ", designer=" + designer +
+                '}';
     }
 }

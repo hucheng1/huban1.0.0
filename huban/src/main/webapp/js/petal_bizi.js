@@ -1,5 +1,8 @@
-var fid=sessionStorage['followId'];//获取画板id
+
 $(function () {
+
+    var fid = getRequest().hid;
+    alert("fid" + fid)
     $.ajax({
         type:'post',
         url:'ju',
@@ -7,16 +10,10 @@ $(function () {
         dataType:"json",
         success: function (data) {
             //读取标题与内容
-            $("#hhh").text(data.hname);
-            $(".info").text(data.context);
-            /*   //关注者头像
-               for(var j=0;j<data[i].usersList.length;j++){
-                   var a="<a class='\"followers_item\" ' href=\"#\">\n" +
-                       "<img src='"+data[i].usersList[j].img+"' alt=\"\">\n" +
-                       "</a>"
-                   $(".followers").append(a);
-               }*/
-
+            for (var i = 0; i < data.length; i++) {
+                $("#hhh").text(data[i].hname);
+                $(".info").text(data[i].describe);
+            }
         }
     })//画板关注信息结尾
 
@@ -27,18 +24,34 @@ $(function () {
         data:{'fid':fid},
         dataType:"json",
         success: function (data) {
+            // alert(JSON.stringify(data))
             for(var i=0;i<data[0].usersList.length;i++){
                 var a="<a class='\"followers_item\" ' href=\"#\">\n" +
-                    "<img src='"+data[0].usersList[i].img+"' alt=\"\">\n" +
+                    "<img src='img/" + data[0].usersList[i].img + "' alt=\"\">\n" +
                     "</a>"
                 $(".followers").append(a);
             }
         }
     })//关注着头像结尾
+
+
 })
 
-//点击画板关注
-function gaunzhu(){
-    //验证用户是否登录才能点击关注
-
+//返回?后的json对象
+function getRequest() {
+    //获取url中"?"符后的字串
+    var url = location.search;
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        var strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            //theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            //theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+            theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
 }
+
+

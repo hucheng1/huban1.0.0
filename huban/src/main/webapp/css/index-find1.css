@@ -303,10 +303,7 @@ header>form>input:hover{
 	margin: 0 auto;
 }
 .recommend img{
-	/*width:308px;*/
-	width:290px;
-	height: 315px;
-	margin-left:17px;
+    margin-bottom: 8px;
 }
 .ul li{
 	display: inline-block;

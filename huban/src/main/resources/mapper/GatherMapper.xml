@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.huaban.dao.IGatherDao" >
-  <resultMap id="BaseResultMap" type="com.huaban.entity.Gather" >
+    <resultMap id="BaseResultMap" type="com.huaban.entity.Gather">
     <id column="gid" property="gid" jdbcType="INTEGER" />
     <result column="img" property="img" jdbcType="VARCHAR" />
     <result column="hid" property="hid" jdbcType="INTEGER" />
@@ -10,9 +10,47 @@
     <result column="date" property="date" jdbcType="TIMESTAMP" />
     <result column="details" property="details" jdbcType="VARCHAR"/>
   </resultMap>
-  <sql id="Base_Column_List" >
+
+    <resultMap id="BaseResultMap1" type="com.huaban.entity.Gather">
+        <id column="gid" property="gid" jdbcType="INTEGER"/>
+        <result column="img" property="img" jdbcType="VARCHAR"/>
+        <result column="hid" property="hid" jdbcType="INTEGER"/>
+        <result column="lid" property="lid" jdbcType="INTEGER"/>
+        <result column="transpond_uid" property="transpondUid" jdbcType="INTEGER"/>
+        <result column="date" property="date" jdbcType="TIMESTAMP"/>
+        <result column="details" property="details" jdbcType="VARCHAR"/>
+        <result column="hname" property="hname" jdbcType="VARCHAR"/>
+        <result column="uid" property="uid" jdbcType="INTEGER"/>
+        <association property="user" column="uid" javaType="com.huaban.entity.Users">
+            <id column="uid" property="uid" jdbcType="INTEGER"/>
+            <result column="uname" property="uname" jdbcType="VARCHAR"/>
+            <result column="uimg" property="img" jdbcType="VARCHAR"/>
+        </association>
+    </resultMap>
+
+    <sql id="Base_Column_List">
     gid, img, hid, lid, transpond_uid, date,details
   </sql>
+    <!--查询画板详情所有信息关注-->
+    <select id="selectHubanAll" resultMap="BaseResultMap1" parameterType="int">
+    SELECT g.`gid`,g.`img`,g.`transpond_uid`,g.`hid`,g.`details`,h.`hname`,u.`img` AS uimg,u.`uname`,u.`uid`
+FROM `huab` h
+INNER JOIN `gather` g
+ON g.`hid`=h.`hid`
+INNER JOIN `users` u ON u.`uid`=h.`uid`
+WHERE h.`hid`=#{hid}
+  </select>
+
+    <!--首页为你推荐-->
+    <select id="selectTuiJian" resultMap="BaseResultMap1">
+SELECT g.`gid`,g.`img`,g.`transpond_uid`,g.`hid`,g.`details`,h.`hname`,u.`img` AS uimg,u.`uname`,u.`uid`
+FROM `huab` h
+INNER JOIN `gather` g
+ON g.`hid`=h.`hid`
+INNER JOIN `users` u ON u.`uid`=h.`uid`
+ ORDER BY g.`date` DESC
+  LIMIT 0,40
+  </select>
   <select id="selectByHid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select * from gather
     where hid=${hid}
@@ -21,9 +59,9 @@
     select * from gather
     where gid=${gid}
   </select>
-  <!--查询图片-->
-  <select id="selectimgAll" resultMap="BaseResultMap" parameterType="java.util.Map">
-     SELECT * FROM `gather` LIMIT #{currentPage},#{pageSize}
+    <!--查询画板图片信息-->
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT * FROM gather WHERE hid =#{hid,jdbcType=INTEGER} LIMIT 0,4
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 

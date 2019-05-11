@@ -876,6 +876,7 @@ body {
   height: 126px;
   border-radius: 4px;
   overflow: hidden;
+    margin-left: 20px;
 }
 .blur .img{
   display: inline-block;

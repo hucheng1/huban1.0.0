@@ -3,7 +3,7 @@ package com.huaban.service.impl;
 import com.huaban.dao.IGatherDao;
 import com.huaban.dao.IHuabDao;
 import com.huaban.entity.Huab;
-import com.huaban.service.*;
+import com.huaban.service.IHuabService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,5 +51,18 @@ public class HuabService implements IHuabService{
     @Override
     public List<Huab> selectHuan(int id) {
         return hdao.selectHuan(id);
+    }
+
+
+    //查询所有信息
+    @Override
+    public List<Huab> selectAllImpl() {
+        return hdao.selectAllImpl();
+    }
+
+    //查询画板下的所有图片信息
+    @Override
+    public List<Huab> selectHuabAll() {
+        return hdao.selectHuabAll();
     }
 }

@@ -8,10 +8,10 @@ import java.util.Date;
  * 采集类
  */
 public class Gather {
+
     private Integer gid;
 
     private String img;
-
     /**
      * 用户id
      */
@@ -29,6 +29,12 @@ public class Gather {
      * 描述
      */
     private String details;
+
+    private String hname;
+
+    private Users user;
+
+    private Integer uid;
 
     public String getDetails() {
         return details;
@@ -87,5 +93,46 @@ public class Gather {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getHname() {
+        return hname;
+    }
+
+    public void setHname(String hname) {
+        this.hname = hname;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
+
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
+    @Override
+    public String toString() {
+        return "Gather{" +
+                "gid=" + gid +
+                ", img='" + img + '\'' +
+                ", hid=" + hid +
+                ", lid=" + lid +
+                ", transpondUid=" + transpondUid +
+                ", details='" + details + '\'' +
+                ", hname='" + hname + '\'' +
+                ", user=" + user +
+                ", uid=" + uid +
+                ", date=" + date +
+                '}';
     }
 }

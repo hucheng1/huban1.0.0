@@ -15,4 +15,10 @@ public interface IHuabService {
      */
     List<Huab> selectHuan(int id);
 
+    //查询所有信息
+    List<Huab> selectAllImpl();
+
+    //查询画板下的图片信息
+    List<Huab> selectHuabAll();
+
 }

@@ -20,4 +20,15 @@ public interface IGatherDao {
      * 根据hid查询采集集合
      */
     List<Gather> selectByHid(@Param("hid") Integer hid);
+
+
+ //查询画板关注详情信息
+ List<Gather> selectHubanAll(int hid);
+
+ //查询画板信息
+ List<Gather> selectById(Integer hid);
+
+
+ //查询首页为你推荐
+ List<Gather> selectTuiJian();
 }
