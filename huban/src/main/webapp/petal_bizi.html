@@ -287,7 +287,7 @@
             },
             methods: {
                 loadGather: function () {
-                    var fid = sessionStorage['followId'];//获取画板id
+                    var fid = getRequest().hid;
                     $.ajax({
                         type: "get",
                         url: "/huaban/gathers",

@@ -140,7 +140,7 @@
         </h1>
         <div id="content" style="position: relative;height: 790px;">
             <div v-for="huab in huabs" class="Board wfc ">
-                <a href="/boards/15906578/" target="_blank" class="link  x">
+                <a :href="'petal_bizi.html?hid='+huab.hid" target="_blank" class="link  x">
                     <img v-for="(item,index) in huab.gathers" :src="'img/'+item.img" :class="{large:index==0}">
                     <div class="shadows">
                         <div class="large-shadow"></div>
@@ -164,7 +164,10 @@
                 el: "#content",
                 data: {
                     huabs: [{
-                        gather: [{img: ""}]
+                        gather: [{
+                            img: ""
+
+                        }]
                     }]
                 }
             });

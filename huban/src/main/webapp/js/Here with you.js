@@ -1,34 +1,34 @@
 $(function () {
-    //关注列表跳转页面
-    $('.contant ul.list').on('click', 'li', function (e) {
-        e.preventDefault();//防止上面的链接打开 URL
-        var fid = $(this).index();
-        sessionStorage['followId'] = fid + 1;//相同浏览器的不同页面间可以共享相同的数据
-        if (fid == 0) {
-            location.href = 'petal_bizi.html';
-        }
-        else if (fid == 1) {
-            location.href = 'petal_bizi.html';
-        }
-        else if (fid == 2) {
-            location.href = 'petal_bizi.html';
-        }
-        else if (fid == 3) {
-            location.href = 'petal_bizi.html';
-        }
-        else if (fid == 4) {
-            location.href = 'petal_bizi.html';
-        }
-        else if (fid == 5) {
-            location.href = 'petal_bizi.html';
-        }
-        else if (fid == 6) {
-            location.href = 'petal_bizi.html';
-        }
-    })
+    /*    //关注列表跳转页面
+        $('.contant ul.list').on('click', 'li', function (e) {
+            e.preventDefault();//防止上面的链接打开 URL
+            var fid = $(this).index();
+            sessionStorage['followId'] = fid + 1;//相同浏览器的不同页面间可以共享相同的数据
+            if (fid == 0) {
+                location.href = 'petal_bizi.html';
+            }
+            else if (fid == 1) {
+                location.href = 'petal_bizi.html';
+            }
+            else if (fid == 2) {
+                location.href = 'petal_bizi.html';
+            }
+            else if (fid == 3) {
+                location.href = 'petal_bizi.html';
+            }
+            else if (fid == 4) {
+                location.href = 'petal_bizi.html';
+            }
+            else if (fid == 5) {
+                location.href = 'petal_bizi.html';
+            }
+            else if (fid == 6) {
+                location.href = 'petal_bizi.html';
+            }
+        })
 
 
-})
+    })*/
 
 
 window.load = waterFall("aa", "view-on");

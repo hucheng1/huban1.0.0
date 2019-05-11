@@ -74,229 +74,26 @@
     }
 });
 
--
+
 
 //页面载入时函数
 $(function () {
-        //页面加载完成后一步加载图片
-        $.ajax({
-            type: 'get',
-            url: 'data/loadmore.php',
-            data: {'load': 1},
-            success: function (data) {
-                var html = $('.recommend>.content').html();
-                //console.log(data.data_intro[1].resource1);
-                if (data) {
-                    for (var i = 0; i < data.dataimg.length; i++) {
-                        var imgs = data.dataimg[i];
-                        var text = data.data_intro[i];
-                        html += `
-                     <div class="recommend-box">
-                        <div class="recommend-box-img">
-                            <a href="#"><img src="${imgs.pic1}"  ></a>
-                        </div>
-                        <div class="recommend-box-img">
-                        <div class="recommend-box-img-top">
-                            <h1>画板</h1>
-                            <h4>${text.resource1}</h4>
-                            <h5><span>${text.collect1}采集</span><span>${text.fans1}粉丝</span></h5>
-
-                        <p>来自<a href="#">${text.from1}</a></p>
-
-                            <div class="info-tra-left"></div>
-                        </div>
-                        <div class="recommend-box-img-bottom">
-                            <div class="info-tra-right"></div>
-                            <h1><p>画板</p></h1>
-                            <h4>${text.resource2}</h4>
-                            <h5><span>${text.collect2}采集</span><span>${text.fans2}粉丝</span></h5>
-
-                            <p>来自<a href="#">${text.from2}</a></p>
-                         </div>
-
-                    </div>
-                        <div class="recommend-box-img">
-                            <a href="#"><img src="${imgs.pic2}"></a>
-                        </div>
-                        <div class="recommend-box-img">
-                         <a href="#"><img src="${imgs.pic3}"></a>
-                        </div>
-                    </div>
-
-                    <div class="recommend-box">
-                        <div class="recommend-box-img">
-                            <a href="#"><img src="${imgs.pic4}"></a>
-                        </div>
-
-                        <div class="recommend-box-img">
-                             <a href="#"><img src="${imgs.pic5}"></a>
-                        </div>
-                        <div class="recommend-box-img">
-                        <div class="recommend-box-img-top">
-                            <h1>画板</h1>
-                            <h4>${text.resource3}</h4>
-                            <h5><span>${text.collect3}采集</span><span>${text.fans3}粉丝</span></h5>
-                            <p>来自<a>${text.from3}</a></p>
-                            <div class="info-tra-left"></div>
-                        </div>
-                        <div class="recommend-box-img-bottom">
-                            <h1><p>画板</p></h1>
-                            <h4>${text.resource4}</h4>
-                            <h5><span>${text.collect4}采集</span><span>${text.fans4}粉丝</span></h5>
-                            <p>来自<a href="#">${text.from4}</a></p>
-                            <div class="info-tra-right"></div>
-                        </div>
-                    </div>
-                    <div class="recommend-box-img">
-                        <a href="#"><img src="${imgs.pic6}"></a>
-                    </div>
-                </div>
-                `;
-
-                        $('.recommend>.content').html(html);
-                    }
-                } else {
-                    $('#loadmore').html("没有更多了！");
-                }
-
-            }
-             
-        });
-  
-    //模态框-登录界面开关
-    $("#login").click(function () {
-    $('.modal_login').toggle();
-});
-    $('#close').click(function (e) {
-    e.preventDefault();
-    $(this).parent().parent().toggle();
-});
-//模态框-注册界面开关
-    $("#regis").click(function () {
-    $('.modal_regist').toggle();
-
-});
-    $('#regist_close').click(function (e) {
-    e.preventDefault();
-    $(this).parent().parent().toggle();
-});
-//注册异步验证
-    $('.btn-regist').click(function (e) {
-    e.preventDefault();
-    //手机号格式验证
-    var reg=/^1[3578]{1}\d{9}$/;
-    if(!reg.test($('#phone').val())){
-        $('#reupwd').next().html('电话号码格式不正确，请重新输入').css({'display':"block","color":"#e4393c"});
-    }
-    //验证两次输入的密码是否一致
-    else if($('#upwd').val()!=$('#reupwd').val()){
-        $('#reupwd').next().html('密码不一致,请重新输入!').css({'display':"block","color":"#e4393c"});
-    }
-    //手机格式及密码验证成功后将数据发送至客户端
-    else if($('#upwd').val()==$('#reupwd').val()){
-        var phone=$('#phone').val();
-        var upwd=$('#upwd').val();
-        var html="";
-        $.ajax({
-            url:"data/user_add.php",
-            type:"post",
-            data:{phone:phone,upwd:upwd},
-            success: function (result) {
-                sessionStorage['phone']=phone;
-                if(result.code<0){
-                    $('#reupwd').next().html(result.msg).css({'display':"block","color":"#e4393c"});
-                }if(result.code>0){
-                    $('#reupwd').next().html(result.msg+"请稍后...").css({'display':"block","color":"#3c0"});
-                    setTimeout(function () {
-                        location.href="index-find1.html";
-                    },2000)
-                }
-            }
-        });
-
-    }
-});
-
-//登录信息验证
-
-    $('.btn-login').click(function (e) {
-    e.preventDefault();
-    var phone=$('#userphone').val();
-    var upwd=$('#userpwd').val();
-    $.ajax({
-        url:"data/login.php",
-        type:"post",
-        data:{phone:phone,upwd:upwd},
-        success: function (result) {
-            if(result.code<0){
-                $('.erro').html(result.msg).css({'display':"block","color":"#e4393c"});
-            }else if(result.code>0){
-                sessionStorage['phone']=phone;
-                $('.erro').html("登录成功，请稍后！").css({'display':"block","color":"#3c0"});
-                setTimeout(function () {
-                    location.href="index-find1.html";
-                },1000)
-            }
-        }
-    });
-});
-
-
-
-        //用户登录成功后显示内容
-
-        if(sessionStorage['phone']){
-            ph=sessionStorage['phone'];
-            ph=String(ph).replace(/(\d{3})(\d{4})(\d{4})/g,"$1****$3");
-            var html='';
-            html=`
-            <li class="notice">
-               <i class="nav-icon"></i>
-            </li>
-            <li class="welcome">
-                <span>欢迎回来:${ph}</span>
-                <ul class="dropdown_login fade">
-                    <li><b></b>我的花瓣</li>
-                    <li><b></b>私信</li>
-                    <li><b></b>我的关注</li>
-                    <li><b></b>查找好友</li>
-                    <li><b></b>花瓣认证设计师</li>
-                    <li><b></b>账号设置</li>
-                    <li class="exit"><b></b>退出</li>
-                </ul>
-            </li>
-    `;
-            $('.header_nav_right ul:eq(0)').html(html);
-            $('.welcome').hover(function () {
-                console.log(11)
-                $('.dropdown_login').toggleClass("in");
-            });
-            $('.exit').click(function () {
-                sessionStorage.removeItem('phone');
-                location.href="index-find1.html";
-            })
-        }
-    });
-
-//点击加载更多
-    var n = 4;
-    $('#loadmore').click(function (e) {
-    e.preventDefault();
+    //页面加载完成后一步加载图片
     $.ajax({
         type: 'get',
         url: 'data/loadmore.php',
-        data: {'load': n},
+        data: {'load': 1},
         success: function (data) {
             var html = $('.recommend>.content').html();
             //console.log(data.data_intro[1].resource1);
-            if (data.dataimg[0] != undefined && data.data_intro[1] != undefined) {
+            if (data) {
                 for (var i = 0; i < data.dataimg.length; i++) {
                     var imgs = data.dataimg[i];
                     var text = data.data_intro[i];
                     html += `
                      <div class="recommend-box">
                         <div class="recommend-box-img">
-                            <a href="#"><img src="${imgs.pic1}"></a>
+                            <a href="#"><img src="${imgs.pic1}"  ></a>
                         </div>
                         <div class="recommend-box-img">
                         <div class="recommend-box-img-top">
@@ -362,43 +159,90 @@ $(function () {
                 $('#loadmore').html("没有更多了！");
             }
 
-            n += 3;
+        }
+
+    });
+
+    //模态框-登录界面开关
+    $("#login").click(function () {
+        $('.modal_login').toggle();
+    });
+    $('#close').click(function (e) {
+        e.preventDefault();
+        $(this).parent().parent().toggle();
+    });
+//模态框-注册界面开关
+    $("#regis").click(function () {
+        $('.modal_regist').toggle();
+
+    });
+    $('#regist_close').click(function (e) {
+        e.preventDefault();
+        $(this).parent().parent().toggle();
+    });
+//注册异步验证
+    $('.btn-regist').click(function (e) {
+        e.preventDefault();
+        //手机号格式验证
+        var reg = /^1[3578]{1}\d{9}$/;
+        if (!reg.test($('#phone').val())) {
+            $('#reupwd').next().html('电话号码格式不正确，请重新输入').css({'display': "block", "color": "#e4393c"});
+        }
+        //验证两次输入的密码是否一致
+        else if ($('#upwd').val() != $('#reupwd').val()) {
+            $('#reupwd').next().html('密码不一致,请重新输入!').css({'display': "block", "color": "#e4393c"});
+        }
+        //手机格式及密码验证成功后将数据发送至客户端
+        else if ($('#upwd').val() == $('#reupwd').val()) {
+            var phone = $('#phone').val();
+            var upwd = $('#upwd').val();
+            var html = "";
+            $.ajax({
+                url: "data/user_add.php",
+                type: "post",
+                data: {phone: phone, upwd: upwd},
+                success: function (result) {
+                    sessionStorage['phone'] = phone;
+                    if (result.code < 0) {
+                        $('#reupwd').next().html(result.msg).css({'display': "block", "color": "#e4393c"});
+                    }
+                    if (result.code > 0) {
+                        $('#reupwd').next().html(result.msg + "请稍后...").css({'display': "block", "color": "#3c0"});
+                        setTimeout(function () {
+                            location.href = "index-find1.html";
+                        }, 2000)
+                    }
+                }
+            });
+
         }
     });
-});
 
-//关注列表跳转
-    $('.contant ul.list').on('click', 'li', function (e) {
-    e.preventDefault();
-    var fid = $(this).index();
-    sessionStorage['followId'] = fid + 1;
-    if (fid == 0) {
-        location.href = 'petal_sdwawa.html';
-    }
-    else if (fid == 1) {
-        location.href = 'petal_jiuwugaizao.html';
-    }
-    else if (fid == 2) {
-        location.href = 'petal_gufenghaibao.html';
-    }
-    else if (fid == 3) {
-        location.href = 'petal_huatongbi.html';
-    }
-    else if (fid == 4) {
-        location.href = 'petal_bizi.html';
-    }
-    else if (fid == 5) {
-        location.href = 'petal_yangyang.html';
-    }
-    else if (fid == 6) {
-        location.href = 'petal_tiaowenfushi.html';
-    }
-});
+//登录信息验证
 
-//附着边栏显示隐藏
-    $('.group_item').hover(function () {
-        $(this).children('.elevator_group').toggleClass("in");
+    $('.btn-login').click(function (e) {
+        e.preventDefault();
+        var phone = $('#userphone').val();
+        var upwd = $('#userpwd').val();
+        $.ajax({
+            url: "data/login.php",
+            type: "post",
+            data: {phone: phone, upwd: upwd},
+            success: function (result) {
+                if (result.code < 0) {
+                    $('.erro').html(result.msg).css({'display': "block", "color": "#e4393c"});
+                } else if (result.code > 0) {
+                    sessionStorage['phone'] = phone;
+                    $('.erro').html("登录成功，请稍后！").css({'display': "block", "color": "#3c0"});
+                    setTimeout(function () {
+                        location.href = "index-find1.html";
+                    }, 1000)
+                }
+            }
+        });
     });
 
+
+});
 
 
