@@ -527,6 +527,10 @@
     window.load=selectSeall();
     window.load=selectText();
 
+    //点击购买
+    function clikis() {
+        window.location.href = "YuanCHuan.html?fsId=" + getRequest().fseid;
+    }
     function selectSeall(){
 
         var c=getRequest();
@@ -583,7 +587,7 @@
                    '                        \n' +
                    '                        <div class="ui middel filled grid">\n' +
                    '                            <div class="middle column">\n' +
-                   '                                <button class="ui primary fluid button">购买</button>\n' +
+                   '                                <button class="ui primary fluid button" onclick="clikis()">购买</button>\n' +
                    '                            </div>\n' +
                    '                        </div>\n' +
                    '                    </div>')
